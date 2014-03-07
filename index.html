@@ -15,82 +15,102 @@
 
 	</head>
 	<body>
-		<!-- Add activity -->
+		<div class="container">
+			<!-- Add activity -->
 
-		<div class="col-md-3" id="activityListView">
-			<div class="row">
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
+			<div class="col-md-3" id="activityListView">
+				<div class="row">
+					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
+				</div>
+
+				<!-- singel activity -->
+		  		<div id="singleActivityView">
+		  		</div>
 			</div>
-
-			<!-- singel activity -->
-			<!--<table class="table" id="singleActivityView">
-	  		</table>-->
-	  		<div id="singleActivityView">
-	  		</div>
-		</div>
-		
-		<!-- Modal -->
-		<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivity" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="addActivity">Add Activity</h4>
-					</div>
-					<div class="modal-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label for="activityNameText" class="col-sm-2 control-label">Name</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="activityNameText" placeholder="Activity name" required />
+			
+			<!-- Modal -->
+			<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivity" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="addActivity">Add Activity</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="activityNameText" class="col-sm-2 control-label">Name</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="activityNameText" placeholder="Activity name" required />
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="activityLengthMin" class="col-sm-2 control-label">Length</label>
-								<div class="col-sm-10">
-									<input type="number" class="col-sm-10" id="activityLengthMin" placeholder="Length" required />
-									<div class="col-sm-2">min</div>
+								<div class="form-group">
+									<label for="activityLengthMin" class="col-sm-2 control-label">Length</label>
+									<div class="col-sm-10">
+										<input type="number" class="col-sm-10" id="activityLengthMin" placeholder="Length" required />
+										<div class="col-sm-2">min</div>
+									</div>
 								</div>
-							</div>
-							<!-- <div class="form-group">
-								<label for="activityColorChoose" class="col-sm-2 control-label">Color</label>
-								<div class="col-sm-10">
-									<input type="color" class="form-control" id="activityColorChoose" />
+								<!-- <div class="form-group">
+									<label for="activityColorChoose" class="col-sm-2 control-label">Color</label>
+									<div class="col-sm-10">
+										<input type="color" class="form-control" id="activityColorChoose" />
+									</div>
+								</div> -->
+								<div class="form-group">
+									<label for="activityTypeSelect" class="col-sm-2 control-label">Type</label>
+									<div class="col-sm-10">
+										<select class="form-control" id="activityTypeSelect">
+											<option>Presentation</option>
+											<option>Group Work</option>
+											<option>Discussion</option>
+											<option>Break</option>
+										</select>
+									</div>
 								</div>
-							</div> -->
-							<div class="form-group">
-								<label for="activityTypeSelect" class="col-sm-2 control-label">Type</label>
-								<div class="col-sm-10">
-									<select class="form-control" id="activityTypeSelect">
-										<option>Presentation</option>
-										<option>Group Work</option>
-										<option>Discussion</option>
-										<option>Break</option>
-									</select>
+								<div class="form-group">
+									<label for="activityDescriptionText" class="col-sm-2 control-label">Description</label>
+									<div class="col-sm-10">
+										<textarea rows="3" class="form-control" id="activityDescriptionText" placeholder="Activity description here .."></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="activityDescriptionText" class="col-sm-2 control-label">Description</label>
-								<div class="col-sm-10">
-									<textarea rows="3" class="form-control" id="activityDescriptionText" placeholder="Activity description here .."></textarea>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- day  -->
+			<div class="col-md-3" id="dayScheduleView">
+				<!-- day header -->
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="input" class="col-md-5 control-label">Start Time</label>
+						<div class="col-md-7">
+							<input type="time" class="form-control" id="inputEmail3" placeholder="08:00">
+						</div>
+					</div>
+				</form>
+
+				<div class="row">
+					<div class= "col-md-8" >
+						<div><p id="endTime">End time: 10:55</p></div>
+						<p id="totalTime"> Total time: 175 min</p>
+					</div>
+				</div>
+
+				<!-- day schedule -->
+				<ul id="daySchedule" class="list-unstyled"></ul>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary btn-lg">+ Add a day</button>
+			</div>
+
 		</div>
-
-		<!-- day schedule -->
-		<div class="col-md-3" id="dayScheduleView">
-			<ul id="daySchedule" class="list-unstyled"></ul>
-		</div>
-
-
 	
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery.js"></script>
