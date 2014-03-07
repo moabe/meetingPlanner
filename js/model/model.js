@@ -235,6 +235,7 @@ function createTestData(){
 	model.addActivity(new Activity("Idea 1 discussion",15,2,""),0);
 	model.addActivity(new Activity("Coffee break",20,3,""),0);
 	
+	console.log("Days: " + model.days);
 	console.log("Day Start: " + model.days[0].getStart());
 	console.log("Day End: " + model.days[0].getEnd());
 	console.log("Day Length: " + model.days[0].getTotalLength() + " min");

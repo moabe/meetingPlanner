@@ -1,1 +1,23 @@
-/* Don't add anything except in the end!!!! */
+/*  Our CSS */
+
+/* single activity */
+.Presentation{
+	background-color: #8AA3FF;
+	border: 1px solid;
+	border-color: #6C89C7;
+}
+.GroupWork{
+	background-color: #FF9B5E;
+	border: 1px solid;
+	border-color: #D4814E;
+}
+.Discussion{
+	background-color: #84FF9C;
+	border: 1px solid;
+	border-color: #60BA7C;
+}
+.Break{
+	background-color: #FFEF2D;
+	border: 1px solid;
+	border-color: #ADA21F;
+}
