@@ -21,3 +21,7 @@
 	border: 1px solid;
 	border-color: #ADA21F;
 }
+
+.panel-info {
+	cursor: move;
+}
