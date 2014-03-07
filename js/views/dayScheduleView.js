@@ -1,7 +1,7 @@
 //DayScheduleView constructor
 var DayScheduleView = function (container, model, dayId){
 
-	this.container = container;
+	this.container = container.find("#dayScheduleView");
 	this.dayId = dayId;
 	
 	model.addObserver(this);

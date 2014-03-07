@@ -6,28 +6,36 @@ var SingleActivityView = function (container, model, day, index){
 	//console.log("singelActivity:" + model.days[0]._activities[0].getName());
 	//console.log("singelActivity:" + model.days);
 
-
+/*
 	var tr = $("<tr>");
 
 	this.td = $("<td>");
-	this.td2 = $("<td>");
+	this.td2 = $("<td>");*/
+
+	var row = $("<div>");
+	row.addClass("row");
+	this.div = $("<div>");
+	this.div.addClass("col-md-4");
+	this.div2 =$("<div>");
+	this.div2.addClass("col-md-8");
 
 	this.updateSingel = function(){
 	//get class from activity type
 		if(this.day == null){
-			this.td.html(model.parkedActivities);
+			this.td.html(model.parkedActivities[0].getName());
 		}
 		else{
+			this.div.html(model.days[this.day]._activities[this.arrayindex].getLength() + " min");
 			var typeString = (model.days[this.day]._activities[this.arrayindex].getType()).replace(' ','');
-			this.td2.addClass(typeString);
-			this.td2.html(model.days[this.day]._activities[this.arrayindex].getName());
+			this.div2.addClass(typeString);
+			this.div2.html(model.days[this.day]._activities[this.arrayindex].getName());
 		}
 	}
 
 	this.updateSingel();
-	tr.append(this.td);
-	tr.append(this.td2);
-	container.append(tr);
+	row.append(this.div);
+	row.append(this.div2);
+	container.append(row);
 
 
 	model.addObserver(this);
@@ -35,21 +43,4 @@ var SingleActivityView = function (container, model, day, index){
 	this.update = function(arg){
 		
 	}
-	/* should be moved to view -->
-			<tr>
-				<td>10 min</td>
-	  			<td class="info">Introduction</td>
-	  		</tr>
-	  		<tr>
-	  			<td>35 min</td>
-	  			<td class="danger">Working in groups</td>
-	  		</tr>
-	  		<tr>
-	  			<td>15 min</td>
-	  			<td class="success">Idea 1 discussion</td>
-	  		</tr>
-	  		<tr>
-	  			<td>30 min</td>
-	  			<td class="warning">Coffee break</td>
-	  		</tr>*/
 }
