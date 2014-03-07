@@ -1,23 +1,40 @@
 //singleActivityView constructor
-var SingleActivityView = function (container, model){
-
+var SingleActivityView = function (container, model, day, index){
 	this.table = container.find('#singleActivityView');
-
-	console.log("singelActivity:" + model.days[0]._activities[0].getName());
-	console.log("singelActivity:" + model.days);
+	this.day = day;
+	this.arrayindex = index;
+	//console.log("singelActivity:" + model.days[0]._activities[0].getName());
+	//console.log("singelActivity:" + model.days);
 
 
 	var tr = $("<tr>");
-	var td = $("<td>");
-	td.html(model.days[0]._activities[0].getLength);
-	var td2 = $("<td>");
-	td2.addClass("Presentation"); //class should come from model
-	td2.html(model.days[0]._activities[0].getName);
 
-	tr.append(td);
-	tr.append(td2);
+	this.td = $("<td>");
+	this.td2 = $("<td>");
+
+	this.updateSingel = function(){
+	//get class from activity type
+		if(this.day == null){
+			this.td.html(model.parkedActivities);
+		}
+		else{
+			var typeString = (model.days[this.day]._activities[this.arrayindex].getType()).replace(' ','');
+			this.td2.addClass(typeString);
+			this.td2.html(model.days[this.day]._activities[this.arrayindex].getName());
+		}
+	}
+
+	this.updateSingel();
+	tr.append(this.td);
+	tr.append(this.td2);
 	container.append(tr);
 
+
+	model.addObserver(this);
+	//This function gets called when there is a change at the model
+	this.update = function(arg){
+		
+	}
 	/* should be moved to view -->
 			<tr>
 				<td>10 min</td>
