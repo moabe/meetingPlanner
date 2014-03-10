@@ -3,6 +3,16 @@ var SingleActivityView = function (container, model, day, index){
 	this.table = container.find('#singleActivityView');
 	this.day = day;
 	this.arrayindex = index;
+
+	//pop-up
+	var modal = $("#addActivityModal");
+	this.activityNameText = modal.find("#activityNameText");
+	this.activityLengthMin = modal.find("#activityLengthMin");
+	var selected = model.days[this.day]._activities[this.arrayindex].getType().replace(' ','');
+	this.GroupWork = modal.find("#" + selected);
+	console.log("getTypeId", model.days[this.day]._activities[this.arrayindex].getType());
+	this.activityDescriptionText = modal.find("#activityDescriptionText");
+	
 	//console.log("singelActivity:" + model.days[0]._activities[0].getName());
 	//console.log("singelActivity:" + model.days);
 
@@ -12,8 +22,10 @@ var SingleActivityView = function (container, model, day, index){
 	this.td = $("<td>");
 	this.td2 = $("<td>");*/
 
-	var row = $("<div>");
-	row.addClass("row");
+	this.row = $("<div>");
+	this.row.addClass("row");
+	this.row.attr("data-toggle", "modal");
+	this.row.attr("data-target", "#addActivityModal");
 	this.div = $("<div>");
 	this.div.addClass("col-md-4");
 	this.div2 =$("<div>");
@@ -33,9 +45,9 @@ var SingleActivityView = function (container, model, day, index){
 	}
 
 	this.updateSingel();
-	row.append(this.div);
-	row.append(this.div2);
-	container.append(row);
+	this.row.append(this.div);
+	this.row.append(this.div2);
+	container.append(this.row);
 
 
 	model.addObserver(this);

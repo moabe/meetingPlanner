@@ -6,8 +6,18 @@
 	border: 1px solid;
 	border-color: #6C89C7;
 }
+.Presentation:hover{
+	background-color: #6C89C7;
+	border: 1px solid;
+	border-color: #6C89C7;
+}
 .GroupWork{
 	background-color: #FF9B5E;
+	border: 1px solid;
+	border-color: #D4814E;
+}
+.GroupWork:hover{
+	background-color: #D4814E;
 	border: 1px solid;
 	border-color: #D4814E;
 }
@@ -16,12 +26,21 @@
 	border: 1px solid;
 	border-color: #60BA7C;
 }
+.Discussion:hover{
+	background-color: #60BA7C;
+	border: 1px solid;
+	border-color: #60BA7C;
+}
 .Break{
 	background-color: #FFEF2D;
 	border: 1px solid;
 	border-color: #ADA21F;
 }
-
+.Break:hover{
+	background-color: #ADA21F;
+	border: 1px solid;
+	border-color: #ADA21F;
+}
 .panel-info {
 	cursor: move;
 }
