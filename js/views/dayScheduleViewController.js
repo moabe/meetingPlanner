@@ -7,12 +7,19 @@ var DayScheduleViewController = function(view, model){
 			ui.item.data("day", view.dayId);
 		},
 		change : function(event, ui) {
+			ui.item.data("endPos", ui.placeholder.index());
+		},
+		update : function(event, ui) {
 			var startPos = ui.item.data("startPos");
-			var index = ui.placeholder.index();
+			var index = ui.item.data("endPos");
 			
 			console.log(startPos+" -> "+index+", from "+ui.item.data("day")+" -> "+view.dayId);
 		},
-		update: function(event, ui) {
+		out: function(event, ui) {
+			var startPos = ui.item.data("startPos");
+			var index = ui.item.data("endPos");
+			
+			console.log("Outing: "+startPos+" -> "+index+", from "+ui.item.data("day")+" -> "+view.dayId);
 		}
 	});
 }
