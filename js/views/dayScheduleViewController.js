@@ -1,15 +1,18 @@
 var DayScheduleViewController = function(view, model){
 	
-	var list = $("#daySchedule");
-	
-	list.sortable({
-		update: function() {
-			$('.panel', list).each(function(index, elem) {
-				 var $listItem = $(elem),
-					 newIndex = $listItem.index();
-
-				 // Change the model
-			})
+	view.container.sortable({
+		start : function(event, ui) {
+			var startPos = ui.item.index();
+			ui.item.data("startPos", startPos);
+			ui.item.data("day", view.dayId);
+		},
+		change : function(event, ui) {
+			var startPos = ui.item.data("startPos");
+			var index = ui.placeholder.index();
+			
+			console.log(startPos+" -> "+index+", from "+ui.item.data("day")+" -> "+view.dayId);
+		},
+		update: function(event, ui) {
 		}
 	});
 }
