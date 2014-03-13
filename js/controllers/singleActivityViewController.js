@@ -1,6 +1,6 @@
 var SingleActivityViewController = function(view, model){
 
-	view.row.click(function() {
+	view.row.dblclick(function() {
 		//fill pop-up with values from model
 		var activity;
 		if(view.day == null){

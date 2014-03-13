@@ -1,6 +1,6 @@
 //singleActivityView constructor
 var SingleActivityView = function (container, model, day, index){
-	this.table = container.find('#singleActivityView');
+	this.table = container;
 	this.day = day;
 	this.arrayindex = index;
 
