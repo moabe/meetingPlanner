@@ -6,8 +6,8 @@ $(function() {
 	//createTestData();
 	model.addDay();
 	var activity = new Activity("Introduction", 10, 0, "");
-	model.addActivity(activity, 0);
-	model.addActivity(new Activity("Idea 1", 30, 0, ""), 0);
+	model.addActivity(activity, null);
+	//model.addActivity(new Activity("Idea 1", 30, 0, ""), 0);
 	model.addActivity(new Activity("Working in groups", 35, 1, ""), 0);
 	model.addActivity(new Activity("Idea 1 discussion", 15, 2, ""), 0);
 	model.addActivity(new Activity("Coffee break", 20, 3, ""), 0);
@@ -15,7 +15,7 @@ $(function() {
 
 	//And create the needed controllers and views
 	var activityListView = new ActivityListView($("#activityListView"), model);
-	var singleActivityView = new SingleActivityView($("#singleActivityView"), model, 0, 0);
+	var singleActivityView = new SingleActivityView($("#singleActivityView"), model, null, 0);
 
 	var dayView = new DayView($("#dayView"), model, 0);
 

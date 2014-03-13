@@ -1,19 +1,33 @@
 var SingleActivityViewController = function(view, model){
-	
+
 	view.row.click(function() {
-		view.activityNameText.attr("value", model.days[view.day]._activities[view.arrayindex].getName());
-		view.activityLengthMin.attr("value", model.days[view.day]._activities[view.arrayindex].getLength());
+		//fill pop-up with values from model
+		var activity;
+		if(view.day == null){
+			activity = model.parkedActivities[view.arrayindex];
+		}
+		else{
+			activity = model.days[view.day]._activities[view.arrayindex];
+		}
+		view.activityNameText.attr("value", activity.getName());
+		view.activityLengthMin.attr("value", activity.getLength());
 		view.activityType.attr("selected", "selected");
-		view.activityDescriptionText.attr("value", model.days[view.day]._activities[view.arrayindex].getDescription());
+		view.activityDescriptionText.attr("value", activity.getDescription());
 
 	});
 	view.saveButton.click(function(){
-		console.log("save! " + view.activityTypeDropDown.val());
-
-		model.days[view.day]._activities[view.arrayindex].setName(view.activityNameText.val());
-		model.days[view.day]._activities[view.arrayindex].setLength(view.activityLengthMin.val());
-		model.days[view.day]._activities[view.arrayindex].setTypeId(view.activityTypeDropDown.val());
-		model.days[view.day]._activities[view.arrayindex].setDescription(view.activityDescriptionText.val());
+		//update activity values from pop-up
+		var activity;
+		if(view.day == null){
+			activity = model.parkedActivities[view.arrayindex];
+		}
+		else{
+			activity = model.days[view.day]._activities[view.arrayindex];
+		}
+		activity.setName(view.activityNameText.val());
+		activity.setLength(view.activityLengthMin.val());
+		activity.setTypeId(view.activityTypeDropDown.val());
+		activity.setDescription(view.activityDescriptionText.val());
 	});
 }
 
