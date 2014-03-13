@@ -1,8 +1,9 @@
 //DayScheduleView constructor
-var DayScheduleView = function (container, model, dayId){
+var DayScheduleView = function (container, model, dayId,  rebuild){
 
 	this.container = container;
 	this.dayId = dayId;
+	this.rebuild = rebuild;
 	
 	model.addObserver(this);
 	
@@ -20,6 +21,6 @@ var DayScheduleView = function (container, model, dayId){
 	this.updateView();
 	
 	this.update = function(args) {
-		this.updateView();
+		if (this.rebuild) this.updateView();
 	}
 }
