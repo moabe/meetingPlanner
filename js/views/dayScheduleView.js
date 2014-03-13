@@ -20,6 +20,6 @@ var DayScheduleView = function(container, model, dayId) {
 	this.updateView();
 
 	this.update = function(args) {
-		if (this.rebuild) this.updateView();
+		this.updateView();
 	}
 }
