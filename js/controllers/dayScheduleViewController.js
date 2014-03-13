@@ -6,7 +6,7 @@ var DayScheduleViewController = function(view, model) {
 			ui.item.data("startPos", startPos);
 			ui.item.data("day", view.dayId);
 		},
-		change : function(event, ui) {
+		change: function(event, ui) {
 			ui.item.data("endPos", ui.placeholder.index());
 		},
 		update : function(event, ui) { // This is called one per each day involved in the activity 
@@ -34,4 +34,3 @@ var DayScheduleViewController = function(view, model) {
 		}
 	});
 }
-

@@ -21,13 +21,10 @@ $(function() {
 	//And create the needed controllers and views
 	//var activityListView = new ActivityListView($("#activityListView"), model);
 	//var singleActivityView = new SingleActivityView($("#singleActivityView"), model);
-	var dayScheduleView = new DayScheduleView($("#daySchedule"), model, 0, false);
+	var dayScheduleView = new DayScheduleView($("#daySchedule"), model, 0);
 	var dayScheduleViewController = new DayScheduleViewController(dayScheduleView, model);
-	var dayScheduleView2 = new DayScheduleView($("#daySchedule2"), model, 1, false);
+	var dayScheduleView2 = new DayScheduleView($("#daySchedule2"), model, 1);
 	var dayScheduleViewController2 = new DayScheduleViewController(dayScheduleView2, model);
-	
-	var dayScheduleView3 = new DayScheduleView($("#daySchedule3"), model, 0, true);
-	var dayScheduleView4 = new DayScheduleView($("#daySchedule4"), model, 1, true);
 	
 	$( "#daySchedule, #daySchedule2" ).sortable({
       connectWith: ".activity-list"
