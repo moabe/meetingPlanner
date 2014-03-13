@@ -4,6 +4,9 @@ var DayView = function(container, model, dayId) {
 	this.endTime = container.find("#endTime");
 	this.totalTime = container.find("#totalTime");
 	this.dayScheduleView = container.find("#dayScheduleView");
+	//need to get this one in the controller
+	this.inputStartTime = container.find("#inputStartTime");
+
 
 
 
@@ -39,10 +42,15 @@ var DayView = function(container, model, dayId) {
 			<p id="totalTime"> Total time: </p>
 		</div>
 	</div>*/
+		this.endTime.empty();
+		this.totalTime.empty();
 
 
-		this.endTime.append(model.days[dayId].getEnd());
+		this.endTime.append("End time: "+ model.days[dayId].getEnd());
+
 		this.totalTime.append(model.days[dayId].getTotalLength() + " min");
+
+
 	}
 
 

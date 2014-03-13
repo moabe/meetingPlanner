@@ -22,4 +22,6 @@ var DayScheduleViewController = function(view, model) {
 			console.log("Outing: " + startPos + " -> " + index + ", from " + ui.item.data("day") + " -> " + view.dayId);
 		}
 	});
+
+
 }
