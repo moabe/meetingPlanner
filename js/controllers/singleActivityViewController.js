@@ -1,7 +1,11 @@
 var SingleActivityViewController = function(view, model, popUp){
 
+<<<<<<< HEAD
 	view.row.click(function() {
 		popUp.popUpChange(view.activity);
+=======
+	view.row.dblclick(function() {
+>>>>>>> FETCH_HEAD
 		//fill pop-up with values from model
 
 		/*var activity;
