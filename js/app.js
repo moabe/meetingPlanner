@@ -22,6 +22,7 @@ $(function() {
 	var dayHeaderView = new DayHeaderView($("#dayScheduleView"), model, 0);
 
 	var singelActivityViewController = new SingleActivityViewController(singleActivityView, model);
+
 	var dayScheduleView = new DayScheduleView($("#daySchedule"), model, 0);
 
 	var dayScheduleViewController = new DayScheduleViewController(dayScheduleView, model);

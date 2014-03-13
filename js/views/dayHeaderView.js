@@ -1,9 +1,14 @@
-//SelectView Object constructor
-var SelectView = function(container, model) {
+//DayHeaderView Object constructor
+var DayHeaderView = function(container, model, dayId) {
 
 	this.endTime = container.find("#endTime");
+	this.totalTime = container.find("#totalTime");
 
-	this.endTime.append("hej");
+
+	//model.days[dayId]._activities[i].getName()
+
+	this.endTime.append(model.days[dayId].getEnd());
+	this.totalTime.append(model.days[dayId].getTotalLength() + " min");
 
 
 
@@ -17,6 +22,11 @@ var SelectView = function(container, model) {
 
 
 	//this.refreshView("Filter by course", "");
+	this.updateView();
+
+	this.update = function(args) {
+		this.updateView();
+	}
 
 
 
