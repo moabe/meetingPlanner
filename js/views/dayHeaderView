@@ -1,0 +1,29 @@
+//SelectView Object constructor
+var SelectView = function(container, model) {
+
+	this.endTime = container.find("#endTime");
+
+	this.endTime.append("hej");
+
+
+
+	/*
+	<div class="row">
+		<div class= "col-md-8" >
+						<div><p id="endTime">End time: 10:55</p></div>
+						<p id="totalTime"> Total time: 175 min</p>
+					</div>
+				</div>*/
+
+
+	//this.refreshView("Filter by course", "");
+
+
+
+	model.addObserver(this);
+	//This function gets called when there is a change at the model
+	this.update = function(arg) {
+
+	}
+
+}
