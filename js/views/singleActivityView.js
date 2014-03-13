@@ -1,20 +1,18 @@
 //singleActivityView constructor
-var SingleActivityView = function (container, model, day, index){
+var SingleActivityView = function (container, model, activity){
 	this.table = container.find('#singleActivityView');
-	this.day = day;
+	this.activity = activity;
+	/*this.day = day;
 	this.arrayindex = index;
 
 	//pop-up
 	var modal = $("#addActivityModal");
 	this.activityNameText = modal.find("#activityNameText");
 	this.activityLengthMin = modal.find("#activityLengthMin");
-
-	//var selected = model.days[this.day]._activities[this.arrayindex].getType().replace(' ','');
-	//this.activityType;
 	this.activityDescriptionText = modal.find("#activityDescriptionText");
 	this.saveButton = modal.find("#saveChanges");
 	this.activityTypeDropDown = modal.find("#activityTypeSelect");
-
+*/
 	//creating the row + divs for one activity
 	this.row = $("<div>");
 	this.row.addClass("row");
@@ -25,8 +23,9 @@ var SingleActivityView = function (container, model, day, index){
 	this.div2 =$("<div>");
 
 	this.updateSingel = function(){
+		this.div2.html(this.activity.getName());
 		//update the activity in the parkedActivities
-		var typeString;
+		/*var typeString;
 		if(this.day == null){
 			//this.td.html(model.parkedActivities[0].getName());
 			this.div.html(model.parkedActivities[this.arrayindex].getLength() + " min");
@@ -39,9 +38,10 @@ var SingleActivityView = function (container, model, day, index){
 			typeString = (model.days[this.day]._activities[this.arrayindex].getType()).replace(' ','');
 			this.div2.html(model.days[this.day]._activities[this.arrayindex].getName());
 		}
-		this.activityType = modal.find("#" + typeString);
+		this.activityType = modal.find("#" + typeString);*/
 		this.div2.removeClass();
 		this.div2.addClass("col-md-8");
+		typeString = this.activity.getType().replace(' ','');
 		this.div2.addClass(typeString);
 	}
 
