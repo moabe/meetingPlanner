@@ -47,8 +47,7 @@ var DayView = function(container, model, dayId) {
 
 
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
-
-		this.totalTime.append(model.days[dayId].getTotalLength() + " min");
+		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
 
 
 	}
