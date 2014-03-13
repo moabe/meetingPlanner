@@ -19,12 +19,12 @@ $(function() {
 	var activityListView = new ActivityListView($("#activityListView"), model);
 	var singleActivityView = new SingleActivityView($("#singleActivityView"), model, 0, 0);
 
-	var dayHeaderView = new DayHeaderView($("#dayScheduleView"), model, 0);
+	var dayView = new DayView($("#dayView"), model, 0);
 
 	var singelActivityViewController = new SingleActivityViewController(singleActivityView, model);
 
-	var dayScheduleView = new DayScheduleView($("#daySchedule"), model, 0);
+	//var dayScheduleView = new DayScheduleView($("#dayScheduleView"), model, 0);
 
-	var dayScheduleViewController = new DayScheduleViewController(dayScheduleView, model);
+	var dayScheduleViewController = new DayScheduleViewController(dayView, model);
 
 });
