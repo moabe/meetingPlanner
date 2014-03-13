@@ -13,15 +13,16 @@ var ActivityListView = function(container, model, dayId) {
 		model.addObserver(this);
 
 	this.updateView = function() {
-		container.empty();
+		//container.empty();
+		//$("#singleActivityView").empty();
 
 		var activities = (dayId == null)? model.parkedActivities : model.days[dayId]._activities;
 		for (var i = 0; i < activities.length; ++i) {
 			var a = $("<li>");
 			a.addClass("panel panel-info");
 			container.append(a);
-			this.activityViews[activities[i]] = new SingleActivityView(a, model, dayId, i);
-			this.activityControllers[activities[i]] = new SingleActivityViewController(this.activityViews[activities[i]], model);
+			//this.activityViews[activities[i]] = new SingleActivityView(a, model, dayId, i);
+			//this.activityControllers[activities[i]] = new SingleActivityViewController(this.activityViews[activities[i]], model);
 		}
 	}
 
