@@ -3,8 +3,6 @@ $(function() {
 	//The global variable so we can access it from other controller and views
 	window.stage = "home";
 	
-	//We instantiate our model
-	var model = new Model();
 	//createTestData();
 	model.addDay();
 	var activity = new Activity("Introduction",10,0,"");
