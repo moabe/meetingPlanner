@@ -1,4 +1,8 @@
 /*  Our CSS */
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
 
 /* Activity colors */
 .presentationColor{
@@ -61,8 +65,10 @@
 .panel-info {
 	cursor: move;
 }
-.list-unstyled {
-	min-height: 2em;
+
+.full-height {
+	height: 100%;
+	min-height: 100%;
 }
 
 /*day view*/

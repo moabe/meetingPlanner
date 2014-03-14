@@ -26,7 +26,11 @@ var ActivityListViewController = function(view, model) {
 				
 				model.moveActivity(view.dayId, startPos, view.dayId, endPos);
 			}
-			else { // From one to another					
+			else { // From one to another									
+				// Update the day on the single activity view
+				var dayActivities = (oldDay == null)? model.parkedActivities : model.days[oldDay]._activities;
+				window.viewsMap[dayActivities[startPos].getUniqueId()].day = view.dayId;
+				
 				model.moveActivity(oldDay, startPos, view.dayId, endPos);
 			}
 		}

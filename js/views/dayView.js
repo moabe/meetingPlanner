@@ -51,8 +51,8 @@ var DayView = function(container, model, dayId) {
 		if (this.dayScheduleView == null) {
 			this.dayScheduleView = this.container.find("#dayScheduleView");
 			
-			window.viewsMap["day"+dayId] = new ActivityListView(this.dayScheduleView, model, dayId);
-			window.controllersMap["day"+dayId] = new ActivityListViewController(window.viewsMap["day"+dayId], model);
+			window.viewsMap["day"+dayId+"List"] = new ActivityListView(this.dayScheduleView, model, dayId);
+			window.controllersMap["day"+dayId+"List"] = new ActivityListViewController(window.viewsMap["day"+dayId+"List"], model);
 			window.dragAndDropLists.push("#"+this.dayScheduleView.attr("id"));
 			window.linkDragAndDropLists();
 		}

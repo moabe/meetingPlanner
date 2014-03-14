@@ -119,6 +119,13 @@ function Day(startH,startM) {
 		return length;
 	};
 	
+	this.getActivityStart = function(activityUniqueId) {
+		var time = this._start;
+		for (var i = 0; i < this._activities.length && this._activities[i].getUniqueId() != activityUniqueId; ++i)
+			time += this._activities[i].getLength();
+		return Math.floor(time/60) + ":" + time % 60;
+	}
+	
 	// adds an activity to specific position
 	// if the position is not provided then it will add it to the 
 	// end of the list

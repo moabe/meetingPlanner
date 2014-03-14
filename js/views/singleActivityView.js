@@ -2,8 +2,8 @@
 var SingleActivityView = function (container, model, activity){
 	this.container = container;
 	this.activity = activity;
-	/*this.day = day;
-	this.arrayindex = index;
+	this.day = null;
+	/*this.arrayindex = index;
 
 	//pop-up
 	var modal = $("#addActivityModal");
@@ -24,26 +24,25 @@ var SingleActivityView = function (container, model, activity){
 
 	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
+		
 		//update the activity in the parkedActivities
-		/*var typeString;
+		
 		if(this.day == null){
-			//this.td.html(model.parkedActivities[0].getName());
-			this.div.html(model.parkedActivities[this.arrayindex].getLength() + " min");
-			typeString = (model.parkedActivities[this.arrayindex].getType()).replace(' ','');
-			this.div2.html(model.parkedActivities[this.arrayindex].getName());
+			this.div.html(this.activity.getLength() + " min");
+			this.div2.removeClass();
+			this.div2.addClass("col-md-8");
+			var typeString = this.activity.getType().replace(' ','');
+			this.div2.addClass(typeString);
 		}
 		//update the activity for the day
 		else{
-			//this.div.html(model.days[this.day]._activities[this.arrayindex].getLength() + " min");
-			typeString = (model.days[this.day]._activities[this.arrayindex].getType()).replace(' ','');
-			this.div2.html(model.days[this.day]._activities[this.arrayindex].getName());
+			this.div.html(model.days[this.day].getActivityStart(this.activity.getUniqueId()));
+			this.div2.removeClass();
+			this.div2.addClass("col-md-8");
+			var typeString = this.activity.getType().replace(' ','');
+			this.div2.addClass(typeString);
 		}
-		this.activityType = modal.find("#" + typeString);*/
-		this.div.html(this.activity.getLength() + " min");
-		this.div2.removeClass();
-		this.div2.addClass("col-md-8");
-		var typeString = this.activity.getType().replace(' ','');
-		this.div2.addClass(typeString);
+		
 	}
 
 	this.row.append(this.div);

@@ -19,16 +19,16 @@ $(function() {
 	}
 
 	//createTestData();
-	model.addDay();
+	//model.addDay();
 	window.popUpView = new PopUpView($("#addActivityModal"), model);
 	var popUp = new PopUpViewController(popUpView, model);
-	
+	/*
 	var activity = new Activity("Introduction", 10, 0, "");
 	model.addActivity(activity, null);
 	//model.addActivity(new Activity("Idea 1", 30, 0, ""), 0);
 	model.addActivity(new Activity("Working in groups", 35, 1, ""), 0);
 	model.addActivity(new Activity("Idea 1 discussion", 15, 2, ""), 0);
-	model.addActivity(new Activity("Coffee break", 20, 3, ""), 0);
+	model.addActivity(new Activity("Coffee break", 20, 3, ""), 0);*/
 
 
 	//And create the needed controllers and views
@@ -36,9 +36,7 @@ $(function() {
 	var parkedActivitiesListController = new ActivityListViewController(parkedActivitiesList, model);
 	window.dragAndDropLists.push("#parkedActivities");
 	
-	var dayView = new DayView($("#dayView"), model, 0);
-
-	var dayHeaderViewController = new DayHeaderViewController(dayView, model, 0);
+	var addDayButtonController = new AddDayButtonController($("#addDayButton"), model);
 	
 	window.linkDragAndDropLists();
 });
