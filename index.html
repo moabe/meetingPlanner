@@ -84,7 +84,7 @@
 			</div>
 
 			<!-- day  -->
-			<div class="col-md-3" id="dayView">
+			<div class="col-md-3" id="dayView" hidden>
 				<!-- day header -->
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
@@ -108,9 +108,10 @@
 				</div>
 
 				<!-- day schedule -->
-				<ul id="dayScheduleView" class="list-unstyled"></ul>
+				<ul id="dayScheduleView" class="list-unstyled activity-list">
+				</ul>
 			</div>
-			<div class="col-md-3">
+			<div id="addDayButton" class="col-md-3">
 				<button class="btn btn-primary btn-lg">+ Add a day</button>
 			</div>
 

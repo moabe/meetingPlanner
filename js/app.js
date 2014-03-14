@@ -4,6 +4,19 @@ $(function() {
 	window.viewsMap = {};
 	window.controllersMap = {};
 	window.dragAndDropLists = [];
+	
+	// Links all the activity Lists elements with id in the "dragAndDropLists" array
+	window.linkDragAndDropLists = function () {
+		var s = "";
+		for (var i = 0; i < window.dragAndDropLists.length; ++i) {
+			if (i != 0) s += ", ";
+			s += window.dragAndDropLists[i];
+		}
+		
+		$(s).sortable({
+			connectWith: ".activity-list"
+		}).disableSelection();
+	}
 
 	//createTestData();
 	model.addDay();
@@ -26,18 +39,6 @@ $(function() {
 	var dayView = new DayView($("#dayView"), model, 0);
 
 	var dayHeaderViewController = new DayHeaderViewController(dayView, model, 0);
-
-	window.linkDragAndDropLists = function () {
-		var s = "";
-		for (var i = 0; i < window.dragAndDropLists.length; ++i) {
-			if (i != 0) s += ", ";
-			s += window.dragAndDropLists[i];
-		}
-		
-		$(s).sortable({
-			connectWith: ".activity-list"
-		}).disableSelection();
-	}
 	
 	window.linkDragAndDropLists();
 });

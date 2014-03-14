@@ -1,12 +1,16 @@
 //DayHeaderView Object constructor
 var DayView = function(container, model, dayId) {
 
-	this.endTime = container.find("#endTime");
-	this.totalTime = container.find("#totalTime");
-	this.dayScheduleView = container.find("#dayScheduleView");
+	this.container = container.clone();
+	this.container.insertBefore($("#addDayButton"));
+	this.container.attr("id", container.attr("id")+dayId);
+
+	this.endTime = this.container.find("#endTime");
+	this.totalTime = this.container.find("#totalTime");
+	this.dayScheduleView = null;
 	//need to get this one in the controller
-	this.inputStartTime = container.find("#inputStartTime");
-	this.chart = container.find("#chart");
+	this.inputStartTime = this.container.find("#inputStartTime");
+	this.chart = this.container.find("#chart");
 
 
 
@@ -24,22 +28,16 @@ var DayView = function(container, model, dayId) {
 
 
 	this.updateView = function() {
-
-
-		/*
-		Fills the list of dragable activities in the day
-		<ul id="dayScheduleView" class="list-unstyled"></ul>
-		*/
-		this.dayScheduleView.empty();
-
-		for (var i = 0; i < model.days[dayId]._activities.length; ++i) {
-			var a = $("<li>");
-			a.addClass("panel panel-info");
-			a.html(model.days[dayId]._activities[i].getName());
-			this.dayScheduleView.append(a);
+		
+		// If first time filling the view
+		if (this.dayScheduleView == null) {
+			this.dayScheduleView = this.container.find("#dayScheduleView");
+			
+			window.viewsMap["day"+dayId] = new ActivityListView(this.dayScheduleView, model, dayId);
+			window.controllersMap["day"+dayId] = new ActivityListViewController(window.viewsMap["day"+dayId], model);
+			window.dragAndDropLists.push("#"+this.dayScheduleView.attr("id"));
+			window.linkDragAndDropLists();
 		}
-
-
 		/*
 	Puts end time and total time into the header of a day. 
 	Gets the data from the model. 
@@ -64,7 +62,7 @@ var DayView = function(container, model, dayId) {
 		
 
 
-
+		this.container.show();
 	}
 
 
