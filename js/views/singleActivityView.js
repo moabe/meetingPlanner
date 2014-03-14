@@ -30,7 +30,7 @@ var SingleActivityView = function (container, model, activity){
 		if(this.day == null){
 			this.div.html(this.activity.getLength() + " min");
 			this.div2.removeClass();
-			this.div2.addClass("col-md-8");
+			this.div2.addClass("col-md-8 activity");
 			var typeString = this.activity.getType().replace(' ','');
 			this.div2.addClass(typeString);
 		}
@@ -38,11 +38,10 @@ var SingleActivityView = function (container, model, activity){
 		else{
 			this.div.html(model.days[this.day].getActivityStart(this.activity.getUniqueId()));
 			this.div2.removeClass();
-			this.div2.addClass("col-md-8");
+			this.div2.addClass("col-md-8 activity");
 			var typeString = this.activity.getType().replace(' ','');
 			this.div2.addClass(typeString);
 		}
-		
 	}
 
 	this.row.append(this.div);
