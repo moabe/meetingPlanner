@@ -41,7 +41,7 @@ var SingleActivityView = function (container, model, activity){
 		this.activityType = modal.find("#" + typeString);*/
 		this.div.html(this.activity.getLength() + " min");
 		this.div2.removeClass();
-		this.div2.addClass("col-md-8");
+		this.div2.addClass("col-md-8 activity");
 		var typeString = this.activity.getType().replace(' ','');
 		this.div2.addClass(typeString);
 	}

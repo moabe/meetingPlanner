@@ -23,49 +23,45 @@
 
 
 /* single activity */
+.activity{
+	cursor: move;
+	border: 1px solid;
+}
 .Presentation{
 	background-color: #B49CE8;
-	border: 1px solid;
 	border-color: #AA93DB;
 }
 .Presentation:hover{
 	background-color: #AA93DB;
-	border: 1px solid;
 	border-color: #AA93DB;
 }
 .GroupWork{
 	background-color: #FFFF70;
-	border: 1px solid;
 	border-color: #F5F46C;
 }
 .GroupWork:hover{
 	background-color: #F5F46C;
-	border: 1px solid;
 	border-color: #F5F46C;
 }
 .Discussion{
 	background-color: #FF8D65;
-	border: 1px solid;
 	border-color: #F28660;
 }
 .Discussion:hover{
 	background-color: #F28660;
-	border: 1px solid;
 	border-color: #F28660;
 }
 .Break{
 	background-color: #7AFFCD;
-	border: 1px solid;
 	border-color: #71EDBF;
 }
 .Break:hover{
 	background-color: #71EDBF;
-	border: 1px solid;
 	border-color: #71EDBF;
 }
-.panel-info {
+/*.panel-info {
 	cursor: move;
-}
+}*/
 .list-unstyled {
 	min-height: 2em;
 }
