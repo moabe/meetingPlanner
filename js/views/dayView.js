@@ -6,6 +6,7 @@ var DayView = function(container, model, dayId) {
 	this.dayScheduleView = container.find("#dayScheduleView");
 	//need to get this one in the controller
 	this.inputStartTime = container.find("#inputStartTime");
+	this.chart = container.find("#chart");
 
 
 
@@ -13,6 +14,12 @@ var DayView = function(container, model, dayId) {
 	this.dayId = dayId;
 
 	model.addObserver(this);
+
+		var chartDiv = $("<div>");
+		chartDiv.addClass("chartDiv");
+		var activityLength = model.days[dayId].getLengthByType(1);
+		console.log(activityLength);
+		var procentage = activityLength/model.days[dayId].getTotalLength();
 
 
 
@@ -48,6 +55,14 @@ var DayView = function(container, model, dayId) {
 
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
+
+
+		//  getLengthByType() I need to get length of all types and then change styling from this
+		//Divide the lengthbyType with total length to set a width parameter
+		
+
+		
+
 
 
 	}
