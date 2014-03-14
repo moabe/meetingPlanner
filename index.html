@@ -15,8 +15,8 @@
 
 	</head>
 	<body>
-		<div class="page-header">
-  			<h1>Planning Planet <small>The simple agenda planner</small></h1>
+		<div class="page-header my-header">
+  			<h1>Planning Planet <small class="mySmall">The simple agenda planner</small></h1>
 		</div>
 		<div class="container full-height">
 			<!-- Add activity -->
@@ -79,8 +79,8 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" id="closeButton" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
-							<button type="button" class="btn btn-primary" id="createActivity">Create activity</button>
+							<button type="button" class="btn ourBtn" id="saveChanges">Save changes</button>
+							<button type="button" class="btn ourBtn" id="createActivity">Create activity</button>
 						</div>
 					</div>
 				</div>
@@ -119,7 +119,8 @@
 			</div>
 			<!--  add day -->
 			<div id="addDayButton" class="col-md-3 border">
-				<button class="btn btn-primary btn-lg" id="addButton" >+ Add a day</button>
+				<button class="btn round-button btn-lg" id="addButton" ><span class="glyphicon glyphicon-plus"></span></button>
+				<br>Add a Day<br/>
 			</div>
 
 		</div>

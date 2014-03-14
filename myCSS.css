@@ -4,10 +4,41 @@ html, body {
 	min-height: 100%;
 }
 
+/*Header*/
+.my-header{
+	background-color: #B49CE8;
+	padding-top: 1px;
+}
+.mySmall{
+	color: #FFF;
+}
 
 .ourBtn{
-	color: #888;
-	background-color: #80FFFA;
+	color: #333;
+	background-color: #80E8FA;
+	font-weight: 400;
+	padding: 6px 12px;
+}
+
+.round-button {
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    color:#bbb;
+    background: #ebebeb;
+    margin: 5px;
+}
+.round-button:hover {
+    background: #ccc;
+    color: #fff;
+}
+.round-button:focus {
+    background: #ccc;
+    color: #fff;
+}
+
+.ourBtn:hover{
+	background-color: #7DE3F5;
 }
 
 
@@ -82,6 +113,9 @@ html, body {
 	border: 1px solid;
 	border-color: #999999;
 	min-height: 30em;
+}
+#addDayButton{
+	text-align: center;
 }
 
 #chart{
