@@ -90,7 +90,6 @@ function Day(startH,startM) {
 	this.getTotalLength = function () {
 		var totalLength = 0;
 		$.each(this._activities,function(index,activity){
-			console.log(activity.getLength());
 			totalLength += activity.getLength();
 		});
 		return totalLength;

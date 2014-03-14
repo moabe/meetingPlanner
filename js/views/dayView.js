@@ -57,15 +57,29 @@ var DayView = function(container, model, dayId) {
 
 		//  getLengthByType() I need to get length of all types and then change styling from this
 		//Divide the lengthbyType with total length to set a width parameter
-		var chartDiv = $("<div>");
-		chartDiv.attr("id","chartDiv");
+		/*
 
-		var percentage = (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%";
+		*/
 
-		chartDiv.css("width", percentage);
-		chartDiv.addClass("groupWorkColor");
+		
+		for(i=0; i< ActivityType.length; i++){
+			var chartDiv = $("<div>");
+			chartDiv.attr("id","chartDiv");
 
-		this.chart.append(chartDiv);
+
+			if(i == 0) chartDiv.addClass("presentationColor");
+			if(i == 1) chartDiv.addClass("groupWorkColor");
+			if(i == 2) chartDiv.addClass("discussionColor");
+			if(i == 3) chartDiv.addClass("breakColor");
+
+			var percentage = (model.days[dayId].getLengthByType(i)/model.days[dayId].getTotalLength())*100 + "%";
+			chartDiv.css("width", percentage);
+
+
+			this.chart.append(chartDiv);
+
+		}
+
 		
 
 
