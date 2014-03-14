@@ -4,63 +4,70 @@ html, body {
 	min-height: 100%;
 }
 
+
+.ourBtn{
+	color: #888;
+	background-color: #80FFFA;
+}
+
+
 /* Activity colors */
 .presentationColor{
-	background-color: #8AA3FF;
+	background-color: #B49CE8;
 }
 .groupWorkColor{
-	background-color: #FF9B5E;
+	background-color: #FFFF70;
 }
 
 .discussionColor{
-	background-color: #84FF9C;
+	background-color: #FF8D65;
 }
 
 .breakColor{
-	background-color: #FFEF2D;
+	background-color: #7AFFCD;
 }
 
 
 /* single activity */
 .Presentation{
-	background-color: #8AA3FF;
+	background-color: #B49CE8;
 	border: 1px solid;
-	border-color: #6C89C7;
+	border-color: #AA93DB;
 }
 .Presentation:hover{
-	background-color: #6C89C7;
+	background-color: #AA93DB;
 	border: 1px solid;
-	border-color: #6C89C7;
+	border-color: #AA93DB;
 }
 .GroupWork{
-	background-color: #FF9B5E;
+	background-color: #FFFF70;
 	border: 1px solid;
-	border-color: #D4814E;
+	border-color: #F5F46C;
 }
 .GroupWork:hover{
-	background-color: #D4814E;
+	background-color: #F5F46C;
 	border: 1px solid;
-	border-color: #D4814E;
+	border-color: #F5F46C;
 }
 .Discussion{
-	background-color: #84FF9C;
+	background-color: #FF8D65;
 	border: 1px solid;
-	border-color: #60BA7C;
+	border-color: #F28660;
 }
 .Discussion:hover{
-	background-color: #60BA7C;
+	background-color: #F28660;
 	border: 1px solid;
-	border-color: #60BA7C;
+	border-color: #F28660;
 }
 .Break{
-	background-color: #FFEF2D;
+	background-color: #7AFFCD;
 	border: 1px solid;
-	border-color: #ADA21F;
+	border-color: #71EDBF;
 }
 .Break:hover{
-	background-color: #ADA21F;
+	background-color: #71EDBF;
 	border: 1px solid;
-	border-color: #ADA21F;
+	border-color: #71EDBF;
 }
 .panel-info {
 	cursor: move;
@@ -75,7 +82,7 @@ html, body {
 .border{
 	border: 1px solid;
 	border-color: #999999;
-	min-height: 40em;
+	min-height: 30em;
 }
 
 #chart{

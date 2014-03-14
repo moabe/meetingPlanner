@@ -90,7 +90,6 @@ function Day(startH,startM) {
 	this.getTotalLength = function () {
 		var totalLength = 0;
 		$.each(this._activities,function(index,activity){
-			console.log(activity.getLength());
 			totalLength += activity.getLength();
 		});
 		return totalLength;
@@ -100,7 +99,9 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
-		return Math.floor(end/60) + ":" + end % 60;
+		var minutes = "" + (end % 60);
+		if (minutes.length < 2) minutes = "0"+minutes;
+		return  (Math.floor(end/60)) + ":" + minutes;
 	};
 	
 	// returns the string representation Hours:Minutes of 
@@ -124,7 +125,10 @@ function Day(startH,startM) {
 		var time = this._start;
 		for (var i = 0; i < this._activities.length && this._activities[i].getUniqueId() != activityUniqueId; ++i)
 			time += this._activities[i].getLength();
-		return Math.floor(time/60) + ":" + time % 60;
+		
+		var minutes = "" + (time % 60);
+		if (minutes.length < 2) minutes = "0"+minutes;
+		return  (Math.floor(time/60)) + ":" + minutes;
 	}
 	
 	// adds an activity to specific position
