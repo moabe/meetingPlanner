@@ -36,13 +36,7 @@ var DayView = function(container, model, dayId) {
 
 	chartDiv.css("width", percentage);
 
-
-
-
-	chartDiv.addClass("presentationColor");
-
-
-
+	chartDiv.addClass("groupWorkColor");
 
 	this.chart.append(chartDiv);
 
