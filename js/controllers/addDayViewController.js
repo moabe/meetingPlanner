@@ -1,6 +1,5 @@
-var AddDayButtonController = function(view, model){
-	
-	view.click(function () {	
+var AddDayViewController = function(view, model) {
+	view.addButton.click(function(){
 		var nextDay = model.days.length;
 		model.addDay();
 		

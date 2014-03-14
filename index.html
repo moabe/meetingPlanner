@@ -84,7 +84,7 @@
 			</div>
 
 			<!-- day  -->
-			<div class="col-md-3  full-height" id="dayView" hidden>
+			<div class="col-md-3 border full-height" id="dayView" hidden>
 				<!-- day header -->
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
@@ -109,8 +109,9 @@
 				<ul id="dayScheduleView" class="list-unstyled activity-list  full-height">
 				</ul>
 			</div>
-			<div id="addDayButton" class="col-md-3">
-				<button class="btn btn-primary btn-lg">+ Add a day</button>
+			<!--  add day -->
+			<div id="addDayButton" class="col-md-3 border">
+				<button class="btn btn-primary btn-lg" id="addButton" >+ Add a day</button>
 			</div>
 
 		</div>
@@ -134,13 +135,14 @@
 		<script src="js/views/activityListView.js"></script>
 		<script src="js/views/singleActivityView.js"></script>
 		<script src="js/views/dayView.js"></script>
+		<script src="js/views/addDayView.js"></script>
 
 		<!--controllers-->
 		<script src="js/controllers/popUpViewController.js"></script>
 		<script src="js/controllers/activityListViewController.js"></script>
 		<script src="js/controllers/singleActivityViewController.js"></script>
 		<script src="js/controllers/dayHeaderViewController.js"></script>
-		<script src="js/controllers/addDayButtonController.js"></script>
+		<script src="js/controllers/addDayViewController.js"></script>
 
 </body>
 </html>

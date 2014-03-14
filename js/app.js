@@ -18,25 +18,16 @@ $(function() {
 		}).disableSelection();
 	}
 
-	//createTestData();
-	//model.addDay();
+	//And create the needed controllers and views
 	window.popUpView = new PopUpView($("#addActivityModal"), model);
 	var popUp = new PopUpViewController(popUpView, model);
-	/*
-	var activity = new Activity("Introduction", 10, 0, "");
-	model.addActivity(activity, null);
-	//model.addActivity(new Activity("Idea 1", 30, 0, ""), 0);
-	model.addActivity(new Activity("Working in groups", 35, 1, ""), 0);
-	model.addActivity(new Activity("Idea 1 discussion", 15, 2, ""), 0);
-	model.addActivity(new Activity("Coffee break", 20, 3, ""), 0);*/
-
-
-	//And create the needed controllers and views
+	
 	var parkedActivitiesList = new ActivityListView($("#parkedActivities"), model, null);
 	var parkedActivitiesListController = new ActivityListViewController(parkedActivitiesList, model);
 	window.dragAndDropLists.push("#parkedActivities");
-	
-	var addDayButtonController = new AddDayButtonController($("#addDayButton"), model);
-	
+
+	var addDayView = new AddDayView($("#addDayButton"), model);
+	var addDayViewController = new AddDayViewController(addDayView, model);
+
 	window.linkDragAndDropLists();
 });
