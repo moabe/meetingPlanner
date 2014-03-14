@@ -1,7 +1,10 @@
 // JavaScript Document
 
 // The possible activity types
-var ActivityType = ["Presentation","Group Work","Discussion","Break"]
+var ActivityType = ["Presentation","Group Work","Discussion","Break"];
+
+// Variable to assign a unique ID to newly created activities
+var  _activityUniqueId = 0;
 
 // This is an activity constructor
 // When you want to create a new activity you just call
@@ -11,6 +14,7 @@ function Activity(name,length,typeid,description){
 	var _length = length;
 	var _typeid = typeid;
 	var _description = description;
+	var _uniqueid = _activityUniqueId++;
 	
 	// sets the name of the activity
 	this.setName = function(name) {
@@ -60,7 +64,12 @@ function Activity(name,length,typeid,description){
 	// activity type.
 	this.getType = function () {
 		return ActivityType[_typeid];
-	};
+	}
+	
+	// Returns the unique ID of the activity for identification purposes
+	this.getUniqueId = function () {
+		return _uniqueid;
+	}
 }
 
 // This is a day consturctor. You can use it to create days, 

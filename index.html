@@ -18,14 +18,12 @@
 		<div class="container">
 			<!-- Add activity -->
 
-			<div class="col-md-3" id="activityListView">
+			<div class="col-md-3" id="parkedActivitiesListView">
 				<div class="row">
 					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
 				</div>
-
-				<!-- singel activity -->
-		  		<div id="singleActivityView">
-		  		</div>
+				<ul id="parkedActivities" class="list-unstyled activity-list">
+				</ul>
 			</div>
 			
 			<!-- Modal -->
@@ -86,7 +84,7 @@
 			</div>
 
 			<!-- day  -->
-			<div class="col-md-3" id="dayView">
+			<div class="col-md-3" id="dayView" hidden>
 				<!-- day header -->
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
@@ -108,9 +106,10 @@
 				<div class="chart"></div>
 
 				<!-- day schedule -->
-				<ul id="dayScheduleView" class="list-unstyled"></ul>
+				<ul id="dayScheduleView" class="list-unstyled activity-list">
+				</ul>
 			</div>
-			<div class="col-md-3">
+			<div id="addDayButton" class="col-md-3">
 				<button class="btn btn-primary btn-lg">+ Add a day</button>
 			</div>
 
@@ -138,7 +137,7 @@
 
 		<!--controllers-->
 		<script src="js/controllers/popUpViewController.js"></script>
-	<!--	<script src="js/controllers/dayScheduleViewController.js"></script>-->
+		<script src="js/controllers/activityListViewController.js"></script>
 		<script src="js/controllers/singleActivityViewController.js"></script>
 		<script src="js/controllers/dayHeaderViewController.js"></script>
 
