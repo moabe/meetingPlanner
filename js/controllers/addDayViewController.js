@@ -1,10 +1,10 @@
 var AddDayViewController = function(view, model) {
 	view.addButton.click(function(){
-		//creates one new day 
-		var dayView = new DayView($("#dayView"), model, 0);
-		var dayHeaderViewController = new DayHeaderViewController(dayView, model, 0);
+		var nextDay = model.days.length;
+		model.addDay();
+		
+		window.viewsMap["day"+nextDay] = new DayView($("#dayView"), model, nextDay);
+		window.controllersMap["day"+nextDay] = new DayHeaderViewController(window.viewsMap["day"+nextDay], model, nextDay);
 	});
-
-
 }
 
