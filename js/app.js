@@ -3,10 +3,11 @@ $(function() {
 	//The global variable so we can access it from other controller and views
 	window.viewsMap = {};
 	window.controllersMap = {};
+	window.dragAndDropLists = [];
 
 	//createTestData();
 	model.addDay();
-	var popUpView = new PopUpView($("#addActivityModal"), model);
+	window.popUpView = new PopUpView($("#addActivityModal"), model);
 	var popUp = new PopUpViewController(popUpView, model);
 	
 	var activity = new Activity("Introduction", 10, 0, "");
@@ -18,17 +19,25 @@ $(function() {
 
 
 	//And create the needed controllers and views
-	var activityListView = new ActivityListView($("#activityListView"), model);
-	var singleActivityView = new SingleActivityView($("#singleActivityView"), model, activity);
-
+	var parkedActivitiesList = new ActivityListView($("#parkedActivities"), model, null);
+	var parkedActivitiesListController = new ActivityListViewController(parkedActivitiesList, model);
+	window.dragAndDropLists.push("#parkedActivities");
+	
 	var dayView = new DayView($("#dayView"), model, 0);
 
-	var singelActivityViewController = new SingleActivityViewController(singleActivityView, model, popUp);
-
-	//var dayScheduleView = new DayScheduleView($("#dayScheduleView"), model, 0);
 	var dayHeaderViewController = new DayHeaderViewController(dayView, model, 0);
 
-
-	//var dayScheduleViewController = new DayScheduleViewController(dayView, model);
-
+	window.linkDragAndDropLists = function () {
+		var s = "";
+		for (var i = 0; i < window.dragAndDropLists.length; ++i) {
+			if (i != 0) s += ", ";
+			s += window.dragAndDropLists[i];
+		}
+		
+		$(s).sortable({
+			connectWith: ".activity-list"
+		}).disableSelection();
+	}
+	
+	window.linkDragAndDropLists();
 });

@@ -12,4 +12,21 @@ var PopUpView = function (container, model){
 	this.crossClose = container.find("#crossClose");
 
 	this.saveButton.hide();
+	
+	this.popUpActivity;
+	
+	this.popUpChange = function(a) {
+		this.popUpActivity = a;
+		this.saveButton.show();
+		this.createActivity.hide();
+
+		//fill pop-up with values from activity
+		this.popUpName.html("Change Activity");
+		this.activityNameText.val(this.popUpActivity.getName());
+		this.activityLengthMin.val(this.popUpActivity.getLength());
+		var typeString = this.popUpActivity.getType().replace(' ','');
+		var activityType = this.container.find("#" + typeString);
+		activityType.attr("selected", "selected");	
+		this.activityDescriptionText.val(this.popUpActivity.getDescription());
+	};
 }

@@ -22,7 +22,7 @@ var SingleActivityView = function (container, model, activity){
 	this.div.addClass("col-md-4");
 	this.div2 =$("<div>");
 
-	this.updateSingel = function(){
+	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
 		//update the activity in the parkedActivities
 		/*var typeString;
@@ -54,8 +54,8 @@ var SingleActivityView = function (container, model, activity){
 	model.addObserver(this);
 	//This function gets called when there is a change at the model
 	this.update = function(arg){
-		this.updateSingel();
+		this.updateSingle();
 	}
 
-	this.updateSingel();
+	this.updateSingle();
 }

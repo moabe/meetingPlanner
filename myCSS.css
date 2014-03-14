@@ -44,5 +44,8 @@
 .panel-info {
 	cursor: move;
 }
+.list-unstyled {
+	min-height: 2em;
+}
 
 /*day view*/
