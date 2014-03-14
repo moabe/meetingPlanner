@@ -28,6 +28,6 @@ $(function() {
 
 	var addDayView = new AddDayView($("#addDayButton"), model);
 	var addDayViewController = new AddDayViewController(addDayView, model);
-
+	
 	window.linkDragAndDropLists();
 });

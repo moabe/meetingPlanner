@@ -152,10 +152,11 @@ function Day(startH,startM) {
 	// moves activity inside one day
 	// this method will be called when needed from the model
 	// don't call it directly
-	this._moveActivity = function(oldposition,newposition) {
-		if(newposition > oldposition) {
+	this._moveActivity = function(oldposition,newposition) {	
+		if(newposition > oldposition && newposition < this._activities.length - 1) {
 			newposition--;
 		}
+		
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};
@@ -186,15 +187,17 @@ function Model(){
 		if(day != null) {
 			this.days[day]._addActivity(activity,position);
 		} else {
-			this.parkedActivities.push(activity);
+			if (position != null) {
+				this.parkedActivities.splice(position,0,activity);
+			}
+			else this.parkedActivities.push(activity);
 		}
 		this.notifyObservers();
 	}
 	
 	// add an activity to parked activities
-	this.addParkedActivity = function(activity){
-		this.parkedActivities.push(activity);
-		this.notifyObservers();
+	this.addParkedActivity = function(activity,position){
+		this.addActivity(activity,null,position);
 	};
 	
 	// remove an activity on provided position from parked activites 
@@ -219,7 +222,7 @@ function Model(){
 			this.days[newday]._addActivity(activity,newposition);
 		}else if(newday == null) {
 			var activity = this.days[oldday]._removeActivity(oldposition);
-			this.addParkedActivity(activity);
+			this.addParkedActivity(activity,newposition);
 		} else {
 			var activity = this.days[oldday]._removeActivity(oldposition);
 			this.days[newday]._addActivity(activity,newposition);
@@ -230,7 +233,7 @@ function Model(){
 	//*** OBSERVABLE PATTERN ***
 	var listeners = [];
 	
-	this.notifyObservers = function (args) {
+	this.notifyObservers = function (args) {	
 	    for (var i = 0; i < listeners.length; i++){
 	        listeners[i].update(args);
 	    }
