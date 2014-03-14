@@ -50,20 +50,20 @@ var DayView = function(container, model, dayId) {
 
 		
 		for(i=0; i< ActivityType.length; i++){
-			var chartDiv = $("<div>");
-			chartDiv.attr("id","chartDiv");
+			var chartPart = $("<div>");
+			chartPart.attr("id","chartDiv");
 
 
-			if(i == 0) chartDiv.addClass("presentationColor");
-			if(i == 1) chartDiv.addClass("groupWorkColor");
-			if(i == 2) chartDiv.addClass("discussionColor");
-			if(i == 3) chartDiv.addClass("breakColor");
+			if(i ==0) chartPart.addClass("presentationColor");
+			if(i == 1) chartPart.addClass("groupWorkColor");
+			if(i == 2) chartPart.addClass("discussionColor");
+			if(i == 3) chartPart.addClass("breakColor");
 
 			var percentage = (model.days[dayId].getLengthByType(i)/model.days[dayId].getTotalLength())*100 + "%";
-			chartDiv.css("width", percentage);
+			chartPart.css("width", percentage);
 
 
-			this.chart.append(chartDiv);
+			this.chart.append(chartPart);
 
 		}
 
