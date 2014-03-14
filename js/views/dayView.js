@@ -11,6 +11,17 @@ var DayView = function(container, model, dayId) {
 	//need to get this one in the controller
 	this.inputStartTime = this.container.find("#inputStartTime");
 	this.chart = this.container.find("#chart");
+	this.pPart = this.container.find("#pPart");
+	this.gwPart = this.container.find("#gwPart");
+	this.dPart = this.container.find("#dPart");
+	this.bPart = this.container.find("#bPart");
+
+
+
+
+
+
+
 	this.dayId = dayId;
 
 	model.addObserver(this);
@@ -37,7 +48,7 @@ var DayView = function(container, model, dayId) {
 	</div>*/
 		this.endTime.empty();
 		this.totalTime.empty();
-		this.chart.empty();
+		
 
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
@@ -47,11 +58,22 @@ var DayView = function(container, model, dayId) {
 		/*
 
 		*/
+		//this.chart.empty();
 
-		
+
+		this.pPart.css("width", (model.days[dayId].getLengthByType(0)/model.days[dayId].getTotalLength())*100 + "%");
+		this.gwPart.css("width", (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%");
+		this.dPart.css("width", (model.days[dayId].getLengthByType(2)/model.days[dayId].getTotalLength())*100 + "%");
+		this.bPart.css("width", (model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 + "%");
+
+
+
+
+
+		/*
 		for(i=0; i< ActivityType.length; i++){
-			var chartPart = $("<div>");
-			chartPart.attr("id","chartDiv");
+		//var chartPart = $("<div>");
+		//chartPart.attr("id","chartDiv");
 
 
 			if(i ==0) chartPart.addClass("presentationColor");
@@ -63,9 +85,9 @@ var DayView = function(container, model, dayId) {
 			chartPart.css("width", percentage);
 
 
-			this.chart.append(chartPart);
+		//this.chart.append(chartPart);
 
-		}
+		}*/
 
 		
 		this.container.show();
