@@ -1,7 +1,9 @@
-var SingleActivityViewController = function(view, model, popUp){
+var SingleActivityViewController = function(view, model){
+
+	this.popUp = window.controllersMap["popUp"];
 
 	view.row.click(function() {
-		popUp.popUpChange(view.activity);
+		window.popUpView.popUpChange(view.activity);
 
 		//fill pop-up with values from model
 

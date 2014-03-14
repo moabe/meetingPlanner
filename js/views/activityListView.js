@@ -3,9 +3,6 @@ var ActivityListView = function(container, model, dayId) {
 
 	this.container = container;
 	this.dayId = dayId;
-	
-	this.activityViews = {};
-	this.activityControllers = {};
 
 	// In this view, the view is updated via the drag&drop API, we just care of
 	// the activity creation list, because we just update the model in the controller
@@ -13,16 +10,15 @@ var ActivityListView = function(container, model, dayId) {
 		model.addObserver(this);
 
 	this.updateView = function() {
-		//container.empty();
-		//$("#singleActivityView").empty();
-
 		var activities = (dayId == null)? model.parkedActivities : model.days[dayId]._activities;
 		for (var i = 0; i < activities.length; ++i) {
-			var a = $("<li>");
-			a.addClass("panel panel-info");
-			container.append(a);
-			//this.activityViews[activities[i]] = new SingleActivityView(a, model, dayId, i);
-			//this.activityControllers[activities[i]] = new SingleActivityViewController(this.activityViews[activities[i]], model);
+			if (!window.viewsMap[activities[i].getUniqueId()]) {
+				var a = $("<li>");
+				a.addClass("panel panel-info");
+				container.append(a);
+				window.viewsMap[activities[i].getUniqueId()] = new SingleActivityView(a, model, activities[i]);
+				window.controllersMap[activities[i].getUniqueId()] = new SingleActivityViewController(window.viewsMap[activities[i].getUniqueId()], model);
+			}
 		}
 	}
 

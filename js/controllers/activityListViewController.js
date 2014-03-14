@@ -16,8 +16,9 @@ var ActivityListViewController = function(view, model) {
 			var oldDay = ui.item.data("day");
 			
 			if (oldDay == view.dayId) { // Case move in the same list
-
-				if (endPos >= model.days[view.dayId]._activities.length) { // Probably outing
+			
+				var dayActivities = (view.dayId == null)? model.parkedActivities : model.days[view.dayId]._activities; 
+				if (endPos >= dayActivities.length) { // Probably outing
 					endPos = startPos;
 				}
 				
