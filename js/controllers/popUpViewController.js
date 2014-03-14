@@ -19,7 +19,7 @@ var PopUpViewController = function(view, model){
 		if(formValidation() == true){
 			//update activity values from pop-up
 			view.popUpActivity.setName(view.activityNameText.val());
-			view.popUpActivity.setLength(view.activityLengthMin.val());
+			view.popUpActivity.setLength(+view.activityLengthMin.val());
 			view.popUpActivity.setTypeId(view.activityTypeDropDown.val());
 			view.popUpActivity.setDescription(view.activityDescriptionText.val());
 			console.log("changing form values");
@@ -32,7 +32,7 @@ var PopUpViewController = function(view, model){
 		view.createActivity.removeAttr("data-dismiss");
 		if(formValidation() == true) {
 			//save activity from pop-up
-			var activity = new Activity(view.activityNameText.val(), view.activityLengthMin.val(), view.activityTypeDropDown.val(), view.activityDescriptionText.val());
+			var activity = new Activity(view.activityNameText.val(), +view.activityLengthMin.val(), view.activityTypeDropDown.val(), view.activityDescriptionText.val());
 			model.addActivity(activity, null);
 			restorePopValues();
 			console.log("saving form values");

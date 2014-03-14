@@ -6,7 +6,7 @@ var DayHeaderViewController = function(view, model, dayId) {
 
 		//+ is the same as parseInt() 
 		model.days[dayId].setStart(+time[0],+time[1]);
-		view.updateView();
+		
 
 	});
 

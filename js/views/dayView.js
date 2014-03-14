@@ -26,25 +26,6 @@ var DayView = function(container, model, dayId) {
 
 
 
-	var chartDiv = $("<div>");
-	chartDiv.attr("id","chartDiv");
-
-	var percentage = (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%";
-	console.log(percentage);
-
-	
-
-	chartDiv.css("width", percentage);
-
-	chartDiv.addClass("groupWorkColor");
-
-	this.chart.append(chartDiv);
-
-
-
-
-
-
 	this.updateView = function() {
 		
 		// If first time filling the view
@@ -67,6 +48,7 @@ var DayView = function(container, model, dayId) {
 	</div>*/
 		this.endTime.empty();
 		this.totalTime.empty();
+		this.chart.empty();
 
 
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
@@ -75,6 +57,15 @@ var DayView = function(container, model, dayId) {
 
 		//  getLengthByType() I need to get length of all types and then change styling from this
 		//Divide the lengthbyType with total length to set a width parameter
+		var chartDiv = $("<div>");
+		chartDiv.attr("id","chartDiv");
+
+		var percentage = (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%";
+
+		chartDiv.css("width", percentage);
+		chartDiv.addClass("groupWorkColor");
+
+		this.chart.append(chartDiv);
 		
 
 
