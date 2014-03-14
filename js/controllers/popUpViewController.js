@@ -1,30 +1,55 @@
 var PopUpViewController = function(view, model){
 
 	this.popUpChange = function(a) {
-		activity = a;
-		
+		popUpActivity = a;
+		view.saveButton.show();
+		view.createActivity.hide();
+
 		//fill pop-up with values from activity
-		view.activityNameText.attr("value", activity.getName());
-		view.activityLengthMin.attr("value", activity.getLength());
-		var typeString = activity.getType().replace(' ','');
+		view.popUpName.html("Change Activity");
+		view.activityNameText.val(popUpActivity.getName());
+		view.activityLengthMin.val(popUpActivity.getLength());
+		var typeString = popUpActivity.getType().replace(' ','');
 		var activityType = view.container.find("#" + typeString);
 		activityType.attr("selected", "selected");	
-		view.activityDescriptionText.attr("value", activity.getDescription());
+		view.activityDescriptionText.val(popUpActivity.getDescription());
 
 	};
 	view.saveButton.click(function(){
 		//update activity values from pop-up
-		console.log("save: " + activity);
-		/*if(view.day == null){
-			activity = model.parkedActivities[view.arrayindex];
-		}
-		else{
-			activity = model.days[view.day]._activities[view.arrayindex];
-		}*/
-		activity.setName(view.activityNameText.val());
-		activity.setLength(view.activityLengthMin.val());
-		activity.setTypeId(view.activityTypeDropDown.val());
-		activity.setDescription(view.activityDescriptionText.val());
+		popUpActivity.setName(view.activityNameText.val());
+		popUpActivity.setLength(view.activityLengthMin.val());
+		popUpActivity.setTypeId(view.activityTypeDropDown.val());
+		popUpActivity.setDescription(view.activityDescriptionText.val());
+
+		restorePopValues();
+
 	});
+	view.createActivity.click(function(){
+		//save activity from pop-up
+		var activity = new Activity(view.activityNameText.val(), view.activityLengthMin.val(), view.activityTypeDropDown.val(), view.activityDescriptionText.val());
+		model.addActivity(activity, null);
+		restorePopValues();
+	});
+	view.closeButton.click(function(){
+		restorePopValues();
+	});
+	view.crossClose.click(function(){
+		restorePopValues();
+	});
+	restorePopValues = function(){
+		//removing all attributes from pop-up
+		console.log("restorePopValues " + view.activityNameText.val());
+		view.popUpName.html("Add Activity");
+		view.activityNameText.val('');
+		console.log("after " + view.activityNameText.val());
+		view.activityLengthMin.val('');
+		var activityType = view.container.find("#Presentation");
+		activityType.attr("selected", "selected");	
+		view.activityDescriptionText.val('');
+
+		view.saveButton.hide();
+		view.createActivity.show();
+	};
 }
 
