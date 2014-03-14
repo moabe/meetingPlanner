@@ -10,6 +10,8 @@ var PopUpView = function (container, model){
 	this.createActivity = container.find("#createActivity");
 	this.closeButton = container.find("#closeButton");
 	this.crossClose = container.find("#crossClose");
+	this.activityNameDiv = container.find("#activityNameDiv");
+	this.activityLengthDiv = container.find("#activityLengthDiv");
 
 	this.saveButton.hide();
 }
