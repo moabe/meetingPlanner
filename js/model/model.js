@@ -101,13 +101,13 @@ function Day(startH,startM) {
 		var end = this._start + this.getTotalLength();
 		var minutes = "" + (end % 60);
 		if (minutes.length < 2) minutes = "0"+minutes;
-		return  (Math.floor(end/60)) + ":" + minutes;
+		return  ((Math.floor(end/60) % 24)) + ":" + minutes;
 	};
 	
 	// returns the string representation Hours:Minutes of 
 	// the start time of the day
 	this.getStart = function() {
-		return Math.floor(this._start/60) + ":" + this._start % 60;
+		return (Math.floor(this._start/60 % 24) + ":" + this._start % 60;
 	};
 	
 	// returns the length (in minutes) of activities of certain type
@@ -128,7 +128,7 @@ function Day(startH,startM) {
 		
 		var minutes = "" + (time % 60);
 		if (minutes.length < 2) minutes = "0"+minutes;
-		return  (Math.floor(time/60)) + ":" + minutes;
+		return  ((Math.floor(time/60) % 24) + ":" + minutes;
 	}
 	
 	// adds an activity to specific position
