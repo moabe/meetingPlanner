@@ -39,6 +39,9 @@ $(function() {
 	var dayView = new DayView($("#dayView"), model, 0);
 
 	var dayHeaderViewController = new DayHeaderViewController(dayView, model, 0);
-	
+
+	var addDayView = new AddDayView($("#addDayButton"), model, 0);
+	var addDayViewController = new AddDayViewController(addDayView, model, 0);
+
 	window.linkDragAndDropLists();
 });
