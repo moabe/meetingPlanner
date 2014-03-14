@@ -68,3 +68,10 @@
 .chart{
 	height: 1em;
 }
+
+
+#chartDiv{
+	height: inherit;
+	float:left;
+
+}
