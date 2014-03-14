@@ -1,13 +1,27 @@
 var PopUpViewController = function(view, model){
+	this.popUpChange = function(a) {
+		view.popUpActivity = a;
+		view.saveButton.show();
+		view.createActivity.hide();
 
+		//fill pop-up with values from activity
+		view.popUpName.html("Change Activity");
+		view.activityNameText.val(view.popUpActivity.getName());
+		view.activityLengthMin.val(view.popUpActivity.getLength());
+		var typeString = view.popUpActivity.getType().replace(' ','');
+		var activityType = view.container.find("#" + typeString);
+		activityType.attr("selected", "selected");	
+		view.activityDescriptionText.val(view.popUpActivity.getDescription());
+
+	};
 	view.saveButton.click(function(){
 		view.saveButton.removeAttr("data-dismiss");
 		if(formValidation() == true){
 			//update activity values from pop-up
-			popUpActivity.setName(view.activityNameText.val());
-			popUpActivity.setLength(view.activityLengthMin.val());
-			popUpActivity.setTypeId(view.activityTypeDropDown.val());
-			popUpActivity.setDescription(view.activityDescriptionText.val());
+			view.popUpActivity.setName(view.activityNameText.val());
+			view.popUpActivity.setLength(view.activityLengthMin.val());
+			view.popUpActivity.setTypeId(view.activityTypeDropDown.val());
+			view.popUpActivity.setDescription(view.activityDescriptionText.val());
 			console.log("changing form values");
 
 			restorePopValues();
