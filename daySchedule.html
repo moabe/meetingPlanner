@@ -16,12 +16,70 @@
 </head>
 <body>
 	<div class="row">
-		<ul id="daySchedule" class="col-md-6 list-unstyled activity-list">
+		<ul id="parkedActivities" class="col-md-4 list-unstyled activity-list">
 		</ul>
-		<ul id="daySchedule2" class="col-md-6 list-unstyled activity-list">
+		<ul id="day0Activities" class="col-md-4 list-unstyled activity-list">
+		</ul>
+		<ul id="day1Activities" class="col-md-4 list-unstyled activity-list">
 		</ul>
 	</div>
 
+	<!-- Modal -->
+	<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivity" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="popUpName">Add Activity</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="activityNameText" class="col-sm-2 control-label">Name</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="activityNameText" placeholder="Activity name" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="activityLengthMin" class="col-sm-2 control-label">Length</label>
+							<div class="col-sm-10">
+								<input type="number" class="col-sm-10" id="activityLengthMin" placeholder="Length" required />
+								<div class="col-sm-2">min</div>
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<label for="activityColorChoose" class="col-sm-2 control-label">Color</label>
+							<div class="col-sm-10">
+								<input type="color" class="form-control" id="activityColorChoose" />
+							</div>
+						</div> -->
+						<div class="form-group">
+							<label for="activityTypeSelect" class="col-sm-2 control-label">Type</label>
+							<div class="col-sm-10">
+								<select class="form-control" id="activityTypeSelect">
+									<option id="Presentation" value="0">Presentation</option>
+									<option id="GroupWork" value="1">Group Work</option>
+									<option id="Discussion" value="2">Discussion</option>
+									<option id="Break" value="3">Break</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="activityDescriptionText" class="col-sm-2 control-label">Description</label>
+							<div class="col-sm-10">
+								<textarea rows="3" class="form-control" id="activityDescriptionText" placeholder="Activity description here .."></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="saveChanges" data-dismiss="modal">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
@@ -33,6 +91,8 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app_ferran.js"></script>
 	<script src="js/model/model.js"></script>
+	<script src="js/views/popUpView.js"></script>
+	<script src="js/controllers/popUpViewController.js"></script>	
 	<script src="js/views/activityListView.js"></script>
 	<script src="js/controllers/activityListViewController.js"></script>
 	<script src="js/views/singleActivityView.js"></script>

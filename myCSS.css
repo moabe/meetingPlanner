@@ -1,5 +1,22 @@
 /*  Our CSS */
 
+/* Activity colors */
+.presentationColor{
+	background-color: #8AA3FF;
+}
+.groupWorkColor{
+	background-color: #FF9B5E;
+}
+
+.discussionColor{
+	background-color: #84FF9C;
+}
+
+.breakColor{
+	background-color: #FFEF2D;
+}
+
+
 /* single activity */
 .Presentation{
 	background-color: #8AA3FF;
@@ -44,5 +61,20 @@
 .panel-info {
 	cursor: move;
 }
+.list-unstyled {
+	min-height: 2em;
+}
 
 /*day view*/
+
+
+#chart{
+	height: 1em;
+}
+
+
+#chartDiv{
+	height: inherit;
+	float:left;
+
+}

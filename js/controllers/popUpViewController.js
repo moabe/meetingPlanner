@@ -1,20 +1,5 @@
 var PopUpViewController = function(view, model){
 
-	this.popUpChange = function(a) {
-		popUpActivity = a;
-		view.saveButton.show();
-		view.createActivity.hide();
-
-		//fill pop-up with values from activity
-		view.popUpName.html("Change Activity");
-		view.activityNameText.val(popUpActivity.getName());
-		view.activityLengthMin.val(popUpActivity.getLength());
-		var typeString = popUpActivity.getType().replace(' ','');
-		var activityType = view.container.find("#" + typeString);
-		activityType.attr("selected", "selected");	
-		view.activityDescriptionText.val(popUpActivity.getDescription());
-
-	};
 	view.saveButton.click(function(){
 		view.saveButton.removeAttr("data-dismiss");
 		if(formValidation() == true){
@@ -28,8 +13,6 @@ var PopUpViewController = function(view, model){
 			restorePopValues();
 			view.saveButton.attr("data-dismiss", "modal");
 		}
-		
-
 	});
 	view.createActivity.click(function(){
 		view.createActivity.removeAttr("data-dismiss");

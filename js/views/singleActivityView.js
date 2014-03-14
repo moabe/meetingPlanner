@@ -1,6 +1,6 @@
 //singleActivityView constructor
 var SingleActivityView = function (container, model, activity){
-	this.table = container.find('#singleActivityView');
+	this.container = container;
 	this.activity = activity;
 	/*this.day = day;
 	this.arrayindex = index;
@@ -22,7 +22,7 @@ var SingleActivityView = function (container, model, activity){
 	this.div.addClass("col-md-4");
 	this.div2 =$("<div>");
 
-	this.updateSingel = function(){
+	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
 		//update the activity in the parkedActivities
 		/*var typeString;
@@ -39,7 +39,7 @@ var SingleActivityView = function (container, model, activity){
 			this.div2.html(model.days[this.day]._activities[this.arrayindex].getName());
 		}
 		this.activityType = modal.find("#" + typeString);*/
-		this.div.html(model.parkedActivities[0].getLength() + " min");
+		this.div.html(this.activity.getLength() + " min");
 		this.div2.removeClass();
 		this.div2.addClass("col-md-8");
 		var typeString = this.activity.getType().replace(' ','');
@@ -54,8 +54,8 @@ var SingleActivityView = function (container, model, activity){
 	model.addObserver(this);
 	//This function gets called when there is a change at the model
 	this.update = function(arg){
-		this.updateSingel();
+		this.updateSingle();
 	}
 
-	this.updateSingel();
+	this.updateSingle();
 }
