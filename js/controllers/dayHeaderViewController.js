@@ -1,6 +1,6 @@
 var DayHeaderViewController = function(view, model, dayId) {
 	view.inputStartTime.change(function(){
-		var time = $('#inputStartTime').val();
+		var time = view.container.find('#inputStartTime').val();
 		//console.log(time);
 		time = time.split(":");
 
