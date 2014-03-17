@@ -108,6 +108,10 @@ html, body {
 	min-height: 100%;
 }
 
+.affix {
+	top: 10px;
+	float: left;
+}
 /*day view*/
 .border{
 	border: 1px solid;

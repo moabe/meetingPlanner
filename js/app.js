@@ -29,5 +29,8 @@ $(function() {
 	var addDayView = new AddDayView($("#addDayButton"), model);
 	var addDayViewController = new AddDayViewController(addDayView, model);
 	
+	var parkedActivitiesView = new ParkedActivitiesView($("#parkedActivitiesListView"), model);
+	var parkedActivitiesViewController = new ParkedActivitiesViewController(parkedActivitiesView, model);
+	
 	window.linkDragAndDropLists();
 });
