@@ -75,7 +75,7 @@ var DayView = function(container, model, dayId) {
 		this.bPart.css("width", (model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 + "%");
 
 		if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
-			this.breakP.html("not enouch breaks!!!!!!!!");
+			this.breakP.html("Not enough breaks!");
 
 		}
 
@@ -90,31 +90,6 @@ var DayView = function(container, model, dayId) {
 		else{
 			breakdiv.removeClass("minBreak");
 		}
-
-
-
-
-
-
-
-		/*
-		for(i=0; i< ActivityType.length; i++){
-		//var chartPart = $("<div>");
-		//chartPart.attr("id","chartDiv");
-
-
-			if(i ==0) chartPart.addClass("presentationColor");
-			if(i == 1) chartPart.addClass("groupWorkColor");
-			if(i == 2) chartPart.addClass("discussionColor");
-			if(i == 3) chartPart.addClass("breakColor");
-
-			var percentage = (model.days[dayId].getLengthByType(i)/model.days[dayId].getTotalLength())*100 + "%";
-			chartPart.css("width", percentage);
-
-
-		//this.chart.append(chartPart);
-
-		}*/
 
 		
 		this.container.show();
