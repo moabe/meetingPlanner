@@ -20,6 +20,10 @@ var DayView = function(container, model, dayId) {
 	this.breakP = this.container.find("#breakP");
 
 
+	var breakdiv = $("<div>");
+	this.chart.append(breakdiv);
+
+
 
 
 
@@ -64,8 +68,6 @@ var DayView = function(container, model, dayId) {
 		/*
 
 		*/
-		//this.chart.empty();
-
 
 		this.pPart.css("width", (model.days[dayId].getLengthByType(0)/model.days[dayId].getTotalLength())*100 + "%");
 		this.gwPart.css("width", (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%");
@@ -76,6 +78,20 @@ var DayView = function(container, model, dayId) {
 			this.breakP.html("not enouch breaks!!!!!!!!");
 
 		}
+
+		/* make a line div for showing how much is 30% breaks 
+		<div class="minBreak"></div>*/
+
+		if(model.days[dayId].getLengthByType(0) != 0 || model.days[dayId].getLengthByType(1) != 0 || model.days[dayId].getLengthByType(2) != 0|| model.days[dayId].getLengthByType(3) != 0){
+			breakdiv.addClass("minBreak");
+			
+
+		}
+		else{
+			breakdiv.removeClass("minBreak");
+		}
+
+
 
 
 
