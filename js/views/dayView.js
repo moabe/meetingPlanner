@@ -5,6 +5,7 @@ var DayView = function(container, model, dayId) {
 	this.container.insertBefore($("#addDayButton"));
 	this.container.attr("id", container.attr("id")+dayId);
 
+
 	this.endTime = this.container.find("#endTime");
 	this.totalTime = this.container.find("#totalTime");
 	this.dayScheduleView = null;
@@ -48,8 +49,11 @@ var DayView = function(container, model, dayId) {
 	</div>*/
 		this.endTime.empty();
 		this.totalTime.empty();
-		
+		//this.inputStartTime.empty();
+		console.log(model.days[dayId].getStart());
 
+
+		this.inputStartTime.attr("value", "0" + model.days[dayId].getStart() + "0");
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
 

@@ -107,7 +107,7 @@ function Day(startH,startM) {
 	// returns the string representation Hours:Minutes of 
 	// the start time of the day
 	this.getStart = function() {
-		return (Math.floor(this._start/60 % 24)) + ":" + (this._start % 60);
+		return ( Math.floor(this._start/60 % 24)) + ":" + (this._start % 60) ;
 	};
 	
 	// returns the length (in minutes) of activities of certain type
@@ -121,6 +121,8 @@ function Day(startH,startM) {
 		return length;
 	};
 	
+	//to get the starttime of a specific activity 
+	//we have added this to the model
 	this.getActivityStart = function(activityUniqueId) {
 		var time = this._start;
 		for (var i = 0; i < this._activities.length && this._activities[i].getUniqueId() != activityUniqueId; ++i)
