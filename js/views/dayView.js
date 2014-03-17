@@ -11,11 +11,17 @@ var DayView = function(container, model, dayId) {
 	this.dayScheduleView = null;
 	//need to get this one in the controller
 	this.inputStartTime = this.container.find("#inputStartTime");
+
 	this.chart = this.container.find("#chart");
 	this.pPart = this.container.find("#pPart");
 	this.gwPart = this.container.find("#gwPart");
 	this.dPart = this.container.find("#dPart");
 	this.bPart = this.container.find("#bPart");
+	this.breakP = this.container.find("#breakP");
+
+
+	var breakdiv = $("<div>");
+	this.chart.append(breakdiv);
 
 
 
@@ -49,8 +55,8 @@ var DayView = function(container, model, dayId) {
 	</div>*/
 		this.endTime.empty();
 		this.totalTime.empty();
+		this.breakP.empty();
 		//this.inputStartTime.empty();
-		console.log(model.days[dayId].getStart());
 
 
 		this.inputStartTime.attr("value", "0" + model.days[dayId].getStart() + "0");
@@ -62,13 +68,30 @@ var DayView = function(container, model, dayId) {
 		/*
 
 		*/
-		//this.chart.empty();
-
 
 		this.pPart.css("width", (model.days[dayId].getLengthByType(0)/model.days[dayId].getTotalLength())*100 + "%");
 		this.gwPart.css("width", (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%");
 		this.dPart.css("width", (model.days[dayId].getLengthByType(2)/model.days[dayId].getTotalLength())*100 + "%");
 		this.bPart.css("width", (model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 + "%");
+
+		if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
+			this.breakP.html("not enouch breaks!!!!!!!!");
+
+		}
+
+		/* make a line div for showing how much is 30% breaks 
+		<div class="minBreak"></div>*/
+
+		if(model.days[dayId].getLengthByType(0) != 0 || model.days[dayId].getLengthByType(1) != 0 || model.days[dayId].getLengthByType(2) != 0|| model.days[dayId].getLengthByType(3) != 0){
+			breakdiv.addClass("minBreak");
+			
+
+		}
+		else{
+			breakdiv.removeClass("minBreak");
+		}
+
+
 
 
 
