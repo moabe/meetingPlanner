@@ -22,7 +22,8 @@ var ActivityListViewController = function(view, model) {
 			
 				var dayActivities = (view.dayId == null)? model.parkedActivities : model.days[view.dayId]._activities; 
 				
-				ui.item.data("startPos", endPos); // We reset the end position in case we are actually changing day
+				if (endPos >= dayActivities.length) endPos = startPos;				
+				else ui.item.data("startPos", endPos); // We reset the end position in case we are actually changing day
 				
 				model.moveActivity(view.dayId, startPos, view.dayId, endPos);
 			}
