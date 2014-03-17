@@ -228,6 +228,7 @@ function Model(){
 			this.days[newday]._addActivity(activity,newposition);
 		}
 		this.notifyObservers();
+		//this.print();
 	};
 	
 	//*** OBSERVABLE PATTERN ***
@@ -243,6 +244,18 @@ function Model(){
 	    listeners.push(listener);
 	};
 	//*** END OBSERVABLE PATTERN ***
+	
+	this.print = function() {
+		console.log("#### PARKED");
+		for (var i = 0; i < this.parkedActivities.length; ++i)
+			console.log("    # "+this.parkedActivities[i].getName());
+		for (var j = 0; j < this.days.length; ++j) {
+			console.log("#### DAY "+j);
+			for (var i = 0; i < this.days[j]._activities.length; ++i)
+				console.log("    # "+this.days[j]._activities[i].getName());
+		}
+		console.log("###########");
+	};
 }
 
 // this is the instance of our main model
@@ -252,7 +265,7 @@ var model = new Model();
 
 // you can use this method to create some test data and test your implementation
 function createTestData(){
-	model.addDay();
+	/*model.addDay();
 	model.addActivity(new Activity("Introduction",10,0,""),null);
 	model.addActivity(new Activity("Idea 1",30,0,""),0);
 	model.addActivity(new Activity("Working in groups",35,1,""),0);
@@ -266,5 +279,11 @@ function createTestData(){
 	console.log("Day Length: " + model.days[0].getTotalLength() + " min");
 	$.each(ActivityType,function(index,type){
 		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-	});
+	});*/
+	model.addActivity(new Activity("0",0,0,""),null);
+	model.addActivity(new Activity("1",1,1,""),null);
+	model.addActivity(new Activity("2",2,2,""),null);
+	model.addActivity(new Activity("3",3,3,""),null);
 }
+
+createTestData();

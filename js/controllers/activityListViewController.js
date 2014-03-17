@@ -7,7 +7,7 @@ var ActivityListViewController = function(view, model) {
 			ui.item.data("day", view.dayId);
 		},
 		change: function(event, ui) {
-			ui.item.data("endPos", ui.placeholder.index()-1);
+			ui.item.data("endPos", ui.placeholder.index());
 		},
 		update : function(event, ui) { // This is called one per each day involved in the activity 
 			
@@ -16,16 +16,11 @@ var ActivityListViewController = function(view, model) {
 			var oldDay = ui.item.data("day");
 			
 			//Super hotfix 9001
-			if (endPos == 0) endPos = 1;
-			else if (endPos == -1) endPos = 0;
+			if (oldDay == view.dayId && endPos > startPos) --endPos;
 			
 			if (oldDay == view.dayId) { // Case move in the same list
 			
 				var dayActivities = (view.dayId == null)? model.parkedActivities : model.days[view.dayId]._activities; 
-				
-				if (endPos >= dayActivities.length) { // Probably outing
-					endPos = startPos;
-				}
 				
 				ui.item.data("startPos", endPos); // We reset the end position in case we are actually changing day
 				
