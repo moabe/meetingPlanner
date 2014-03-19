@@ -141,7 +141,10 @@ html, body {
 
 }
 
-
+hr{
+	border: 1px dashed;
+	border-color: #999999;
+}
 
 #breakControll{
 	min-height: 2em;
