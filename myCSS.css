@@ -105,7 +105,7 @@ html, body {
 
 .full-height {
 	height: 100%;
-	min-height: 100%;
+	min-height: 10em;
 }
 
 .affix {
@@ -114,10 +114,20 @@ html, body {
 }
 /*day view*/
 .border{
-	border: 1px solid;
+	border: 1px dashed;
 	border-color: #999999;
 	min-height: 30em;
+	/*margin-right: 10px;*/
+	margin-bottom: 10px;
+	padding: 0 10px;
 }
+
+.outline {
+	outline: 1px dashed;
+	outline-color: #999999;
+	outline-offset: inherit;
+}
+
 #addDayButton{
 	text-align: center;
 }
@@ -134,7 +144,10 @@ html, body {
 
 }
 
-
+hr{
+	border: 1px dashed;
+	border-color: #999999;
+}
 
 #breakControll{
 	min-height: 2em;
@@ -149,5 +162,11 @@ html, body {
 	margin-top: -1em;
 }
 
+.noPadding{
+	padding:0;
+}
 
+.customPadding{
+	padding:0 10px;
+}
 
