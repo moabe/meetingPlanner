@@ -114,7 +114,7 @@ html, body {
 }
 /*day view*/
 .border{
-	border: 1px solid;
+	border: 1px dashed;
 	border-color: #999999;
 	min-height: 30em;
 }
