@@ -6,8 +6,15 @@ html, body {
 
 /*Header*/
 .my-header{
-	background-color: #B49CE8;
+	background-color: #bbb;
 	padding-top: 1px;
+	font-family: 'Cabin Sketch', cursive;
+	margin-top: 0;
+}
+
+h1{
+	font-size: 45px;
+	margin-left: 20px;
 }
 .mySmall{
 	color: #FFF;
