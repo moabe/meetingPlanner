@@ -267,25 +267,7 @@ var model = new Model();
 
 // you can use this method to create some test data and test your implementation
 function createTestData(){
-	/*model.addDay();
-	model.addActivity(new Activity("Introduction",10,0,""),null);
-	model.addActivity(new Activity("Idea 1",30,0,""),0);
-	model.addActivity(new Activity("Working in groups",35,1,""),0);
-	model.addActivity(new Activity("Idea 1 discussion",15,2,""),0);
-	model.addActivity(new Activity("Coffee break",20,3,""),0);
-	
-	console.log("PARKED: " + model.parkedActivities);
-	console.log("parkedActivities name: " + model.parkedActivities[0].getName());
-	console.log("Day Start: " + model.days[0].getStart());
-	console.log("Day End: " + model.days[0].getEnd());
-	console.log("Day Length: " + model.days[0].getTotalLength() + " min");
-	$.each(ActivityType,function(index,type){
-		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-	});*/
-	model.addActivity(new Activity("0",0,0,""),null);
-	model.addActivity(new Activity("1",1,1,""),null);
-	model.addActivity(new Activity("2",2,2,""),null);
-	model.addActivity(new Activity("3",3,3,""),null);
+	var initializedDays = 10;
+	for (var i = 0; i < initializedDays; ++i)
+		model.addActivity(new Activity(""+i,i,i%4,""),null);
 }
-
-createTestData();

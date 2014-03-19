@@ -102,9 +102,10 @@
 
 			<div class="container col-md-9 col-xs-6 full-height noPadding" id="daysList" >
 				<!-- day  -->
-				<div class="col-md-4 customPadding" id="dayView" hidden>
-					<div class="border full-height">
+				<div class="col-md-4 customPadding border" id="dayView" hidden>
 					<!-- day header -->
+					<div class="day-header"><h3 id="dayName">Day 0</h3></div>
+					<hr/>
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							<label for="inputStartTime" class="col-md-5 control-label startTime">Start Time</label>
@@ -126,26 +127,21 @@
 						<div class="chartDiv presentationColor" id="pPart"></div>
 						<div class="chartDiv groupWorkColor" id="gwPart"></div>
 						<div class="chartDiv discussionColor" id="dPart"></div>
-						
-
 					</div>
 					<div id="breakControll">
 						<p id="breakP"></p>
 					</div>
-					<hr>
+					<hr/>
 					<!-- day schedule -->
 					<ul id="dayScheduleView" class="col-md-12 list-unstyled activity-list full-height">
 					</ul>
 				</div>
-			</div>
 				<!--  add day -->
 				<div id="addDayButton" class="col-md-4 customPadding">
 					<div class="border full-height addDay">
 						<button class="btn round-button btn-lg" id="addButton" ><span class="glyphicon glyphicon-plus"></span></button>
 						<br>Add a Day<br/>
 					</div>
-
-				</div>
 				</div>
 			</div>
 		</div>

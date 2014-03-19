@@ -5,7 +5,7 @@ var DayView = function(container, model, dayId) {
 	this.container.insertBefore($("#addDayButton"));
 	this.container.attr("id", container.attr("id")+dayId);
 
-
+	this.dayName = this.container.find("#dayName");
 	this.endTime = this.container.find("#endTime");
 	this.totalTime = this.container.find("#totalTime");
 	this.dayScheduleView = null;
@@ -44,21 +44,23 @@ var DayView = function(container, model, dayId) {
 			window.dragAndDropLists.push("#"+this.dayScheduleView.attr("id"));
 			window.linkDragAndDropLists();
 		}
+		
 		/*
-	Puts end time and total time into the header of a day. 
-	Gets the data from the model. 
-	<div class="row">
-		<div class= "col-md-8" >
-			<div><p id="endTime">End time: </p></div>
-			<p id="totalTime"> Total time: </p>
-		</div>
-	</div>*/
+		Puts end time and total time into the header of a day. 
+		Gets the data from the model. 
+		<div class="row">
+			<div class= "col-md-8" >
+				<div><p id="endTime">End time: </p></div>
+				<p id="totalTime"> Total time: </p>
+			</div>
+		</div>*/
+		
 		this.endTime.empty();
 		this.totalTime.empty();
 		this.breakP.empty();
 		//this.inputStartTime.empty();
 
-
+		this.dayName.html("Day "+dayId);
 		this.inputStartTime.attr("value", "0" + model.days[dayId].getStart() + "0");
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
