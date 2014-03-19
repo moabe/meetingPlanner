@@ -31,7 +31,9 @@
 			<div class="col-md-3 col-xs-6 full-height" id="parkedActivitiesListView" >
 				<div class="border full-height" id="floatingHolder" data-spy="affix" data-offset-top=120>
 					<div class="row">
-						<button class="btn ourBtn btn-lg" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
+						<div class="col-md-12 addActivity">
+						<button class="btn ourBtn" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
+					</div>
 					</div>
 					<ul id="parkedActivities" class="col-md-12 list-unstyled activity-list full-height">
 					</ul>
@@ -134,10 +136,12 @@
 				</div>
 			</div>
 				<!--  add day -->
-				<div id="addDayButton" class="col-md-3 full-height customPadding">
-					<div class="border">
-					<button class="btn round-button btn-lg" id="addButton" ><span class="glyphicon glyphicon-plus"></span></button>
-					<br>Add a Day<br/>
+				<div id="addDayButton" class="col-md-3 border full-height">
+					<div class="addDay">
+						<button class="btn round-button btn-lg" id="addButton" ><span class="glyphicon glyphicon-plus"></span></button>
+						<br>Add a Day<br/>
+					</div>
+
 				</div>
 				</div>
 			</div>
