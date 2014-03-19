@@ -13,11 +13,12 @@ var ActivityListView = function(container, model, dayId) {
 		var activities = (dayId == null)? model.parkedActivities : model.days[dayId]._activities;
 		for (var i = 0; i < activities.length; ++i) {
 			if (!window.viewsMap[activities[i].getUniqueId()]) {
-				var a = $("<li>");
+				var a = $("#singleActivityDiv");
 				//a.addClass("panel panel-info");
-				container.append(a);
 				window.viewsMap[activities[i].getUniqueId()] = new SingleActivityView(a, model, activities[i]);
 				window.controllersMap[activities[i].getUniqueId()] = new SingleActivityViewController(window.viewsMap[activities[i].getUniqueId()], model);
+				
+				this.container.append(window.viewsMap[activities[i].getUniqueId()].container);
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 //singleActivityView constructor
 var SingleActivityView = function (container, model, activity){
-	this.container = container;
+	this.container = container.clone();
+	
 	this.activity = activity;
 	this.day = null;
 	/*this.arrayindex = index;
@@ -14,13 +15,8 @@ var SingleActivityView = function (container, model, activity){
 	this.activityTypeDropDown = modal.find("#activityTypeSelect");
 */
 	//creating the row + divs for one activity
-	this.row = $("<div>");
-	this.row.addClass("row");
-	this.row.attr("data-toggle", "modal");
-	this.row.attr("data-target", "#addActivityModal");
-	this.div = $("<div>");
-	this.div.addClass("col-md-4 noPadding");
-	this.div2 =$("<div>");
+	this.div = this.container.find("#timeBox");
+	this.div2 = this.container.find("#colorBox");
 
 	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
@@ -30,7 +26,7 @@ var SingleActivityView = function (container, model, activity){
 		if(this.day == null){
 			this.div.html(this.activity.getLength() + " min");
 			this.div2.removeClass();
-			this.div2.addClass("col-md-8 activity");
+			this.div2.addClass("col-md-8 col-xs-8 activity");
 			var typeString = this.activity.getType().replace(' ','');
 			this.div2.addClass(typeString);
 		}
@@ -38,15 +34,13 @@ var SingleActivityView = function (container, model, activity){
 		else{
 			this.div.html(model.days[this.day].getActivityStart(this.activity.getUniqueId()));
 			this.div2.removeClass();
-			this.div2.addClass("col-md-8 activity");
+			this.div2.addClass("col-md-8 col-xs-8 activity");
 			var typeString = this.activity.getType().replace(' ','');
 			this.div2.addClass(typeString);
 		}
 	}
 
-	this.row.append(this.div);
-	this.row.append(this.div2);
-	container.append(this.row);
+	this.container.show();
 
 	//Register an observer to the model
 	model.addObserver(this);
