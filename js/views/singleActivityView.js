@@ -19,7 +19,7 @@ var SingleActivityView = function (container, model, activity){
 	this.row.attr("data-toggle", "modal");
 	this.row.attr("data-target", "#addActivityModal");
 	this.div = $("<div>");
-	this.div.addClass("col-md-4");
+	this.div.addClass("col-md-4 noPadding");
 	this.div2 =$("<div>");
 
 	this.updateSingle = function(){
