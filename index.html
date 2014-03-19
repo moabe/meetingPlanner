@@ -22,11 +22,11 @@
 			<!-- Add activity -->
 
 			<div class="col-md-3 col-xs-6 full-height" id="parkedActivitiesListView" >
-				<div class="outline full-height" id="floatingHolder" data-spy="affix" data-offset-top=120>
+				<div class="border full-height" id="floatingHolder" data-spy="affix" data-offset-top=120>
 					<div class="row">
 						<button class="btn ourBtn btn-lg" data-toggle="modal" data-target="#addActivityModal">+ Add Activity</button>
 					</div>
-					<ul id="parkedActivities" class="list-unstyled activity-list full-height">
+					<ul id="parkedActivities" class="col-md-12 list-unstyled activity-list full-height">
 					</ul>
 				</div>
 			</div>
@@ -88,9 +88,10 @@
 				</div>
 			</div>
 
-			<div class="container col-md-9 col-xs-6 full-height" id="daysList" >
+			<div class="container col-md-9 col-xs-6 full-height noPadding" id="daysList" >
 				<!-- day  -->
-				<div class="col-md-4 border full-height" id="dayView" hidden>
+				<div class="col-md-4 customPadding" id="dayView" hidden>
+					<div class="border full-height">
 					<!-- day header -->
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
@@ -102,7 +103,7 @@
 					</form>
 
 					<div class="row">
-						<div class= "col-md-8" >
+						<div class= "col-md-12" ><!-- used to be 8-->
 							<div><p id="endTime"></p></div>
 							<p id="totalTime"></p>
 						</div>
@@ -121,13 +122,16 @@
 					</div>
 					<hr>
 					<!-- day schedule -->
-					<ul id="dayScheduleView" class="list-unstyled activity-list  full-height">
+					<ul id="dayScheduleView" class="col-md-12 list-unstyled activity-list full-height">
 					</ul>
 				</div>
+			</div>
 				<!--  add day -->
-				<div id="addDayButton" class="col-md-3 border full-height">
+				<div id="addDayButton" class="col-md-3 full-height customPadding">
+					<div class="border">
 					<button class="btn round-button btn-lg" id="addButton" ><span class="glyphicon glyphicon-plus"></span></button>
 					<br>Add a Day<br/>
+				</div>
 				</div>
 			</div>
 		</div>
