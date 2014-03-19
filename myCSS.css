@@ -118,6 +118,13 @@ html, body {
 	border-color: #999999;
 	min-height: 30em;
 }
+
+.outline {
+	outline: 1px dashed;
+	outline-color: #999999;
+	outline-offset: inherit;
+}
+
 #addDayButton{
 	text-align: center;
 }
