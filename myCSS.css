@@ -105,7 +105,7 @@ html, body {
 
 .full-height {
 	height: 100%;
-	min-height: 100%;
+	min-height: 10em;
 }
 
 .affix {
@@ -117,6 +117,9 @@ html, body {
 	border: 1px dashed;
 	border-color: #999999;
 	min-height: 30em;
+	/*margin-right: 10px;*/
+	margin-bottom: 10px;
+	padding: 0 10px;
 }
 
 .outline {
@@ -156,5 +159,11 @@ html, body {
 	margin-top: -1em;
 }
 
+.noPadding{
+	padding:0;
+}
 
+.customPadding{
+	padding:0 10px;
+}
 
