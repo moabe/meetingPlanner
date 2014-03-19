@@ -74,16 +74,22 @@ var DayView = function(container, model, dayId) {
 		this.dPart.css("width", (model.days[dayId].getLengthByType(2)/model.days[dayId].getTotalLength())*100 + "%");
 		this.bPart.css("width", (model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 + "%");
 
-		if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
-			this.breakP.html("Not enough breaks!");
 
-		}
 
 		/* make a line div for showing how much is 30% breaks 
 		<div class="minBreak"></div>*/
 
 		if(model.days[dayId].getLengthByType(0) != 0 || model.days[dayId].getLengthByType(1) != 0 || model.days[dayId].getLengthByType(2) != 0|| model.days[dayId].getLengthByType(3) != 0){
 			breakdiv.addClass("minBreak");
+
+
+			if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
+				this.breakP.html("Not enough breaks! You're day should have at least 30% breaks.");
+			}
+
+			else{
+				this.breakP.html("You're day have 30% or more breaks, great!")
+			}
 			
 
 		}
