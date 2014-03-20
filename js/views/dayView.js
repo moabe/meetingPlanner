@@ -12,7 +12,6 @@ var DayView = function(container, model, dayId) {
 	this.endTime = this.container.find("#endTime");
 	this.totalTime = this.container.find("#totalTime");
 	this.dayScheduleView = null;
-	//need to get this one in the controller
 	this.inputStartTime = this.container.find("#inputStartTime");
 
 	this.chart = this.container.find("#chart");
@@ -25,12 +24,6 @@ var DayView = function(container, model, dayId) {
 
 	var breakdiv = $("<div>");
 	this.chart.append(breakdiv);
-
-
-
-
-
-
 
 	this.dayId = dayId;
 
@@ -48,20 +41,9 @@ var DayView = function(container, model, dayId) {
 			window.linkDragAndDropLists();
 		}
 		
-		/*
-		Puts end time and total time into the header of a day. 
-		Gets the data from the model. 
-		<div class="row">
-			<div class= "col-md-8" >
-				<div><p id="endTime">End time: </p></div>
-				<p id="totalTime"> Total time: </p>
-			</div>
-		</div>*/
-		
 		this.endTime.empty();
 		this.totalTime.empty();
 		this.breakP.empty();
-		//this.inputStartTime.empty();
 
 		this.dayName.html("Day "+dayId);
 		this.inputStartTime.attr("value", "0" + model.days[dayId].getStart() + "0");
@@ -78,23 +60,19 @@ var DayView = function(container, model, dayId) {
 		this.bPart.css("width", (model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 + "%");
 
 
-
 		/* make a line div for showing how much is 30% breaks 
 		<div class="minBreak"></div>*/
 
 		if(model.days[dayId].getLengthByType(0) != 0 || model.days[dayId].getLengthByType(1) != 0 || model.days[dayId].getLengthByType(2) != 0|| model.days[dayId].getLengthByType(3) != 0){
 			breakdiv.addClass("minBreak");
 
-
 			if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
 				this.breakP.html("Not enough breaks!").attr("style","color:red");
 			}
-
 			else{
 				this.breakP.html("You're day have 30% or more breaks, great!").attr("style","color:black");
 			}
 			
-
 		}
 		else{
 			breakdiv.removeClass("minBreak");

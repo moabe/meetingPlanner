@@ -1,5 +1,7 @@
 //popUpView constructor
 var PopUpView = function (container, model){
+	
+	//find pop up components
 	this.container = container;
 	this.activityNameText = container.find("#activityNameText");
 	this.activityLengthMin = container.find("#activityLengthMin");
@@ -21,9 +23,9 @@ var PopUpView = function (container, model){
 		this.popUpActivity = a;
 		this.saveButton.show();
 		this.createActivity.hide();
-
-		//fill pop-up with values from activity
 		this.popUpName.html("Change Activity");
+
+		//fill pop-up with values from the clicked activity
 		this.activityNameText.val(this.popUpActivity.getName());
 		this.activityLengthMin.val(this.popUpActivity.getLength());
 		var typeString = this.popUpActivity.getType().replace(' ','');

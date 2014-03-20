@@ -1,3 +1,4 @@
+//Shows the pop up window when the user has clicked an activity
 var SingleActivityViewController = function(view, model){
 
 	this.popUp = window.controllersMap["popUp"];

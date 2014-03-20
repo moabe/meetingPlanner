@@ -14,7 +14,6 @@ var ActivityListView = function(container, model, dayId) {
 		for (var i = 0; i < activities.length; ++i) {
 			if (!window.viewsMap[activities[i].getUniqueId()]) {
 				var a = $("#singleActivityDiv");
-				//a.addClass("panel panel-info");
 				window.viewsMap[activities[i].getUniqueId()] = new SingleActivityView(a, model, activities[i]);
 				window.controllersMap[activities[i].getUniqueId()] = new SingleActivityViewController(window.viewsMap[activities[i].getUniqueId()], model);
 				
@@ -26,7 +25,7 @@ var ActivityListView = function(container, model, dayId) {
 	this.updateView();
 
 	this.update = function(args) {
-		// We will just be here in case we are the parked activities list
+		// We will just be here in case we are in the parked activities list
 		this.updateView();
 	}
 }
