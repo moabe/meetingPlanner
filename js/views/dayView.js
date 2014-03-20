@@ -45,7 +45,7 @@ var DayView = function(container, model, dayId) {
 		this.totalTime.empty();
 		this.breakP.empty();
 
-		this.dayName.html("Day "+dayId);
+		this.dayName.html("Day "+ (+dayId + 1));
 		this.inputStartTime.attr("value", "0" + model.days[dayId].getStart() + "0");
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
