@@ -32,7 +32,7 @@ $(function() {
 	}
 	
 	//Comment next line for no test data
-	createTestData();
+	//createTestData();
 
 	//And create the needed controllers and views
 	

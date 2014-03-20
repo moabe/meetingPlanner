@@ -87,7 +87,7 @@ var DayView = function(container, model, dayId) {
 
 
 			if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
-				this.breakP.html("Not enough breaks! You're day should have at least 30% breaks.").attr("style","color:red");
+				this.breakP.html("Not enough breaks!").attr("style","color:red");
 			}
 
 			else{

@@ -30,10 +30,16 @@ var ActivityListViewController = function(view, model) {
 			var startPos = ui.item.data("startPos");
 			var endPos = ui.item.data("endPos");
 			var oldDay = ui.item.data("day");
+			console.log("update");
+			console.log("startPos" + startPos);
+			console.log("endpos"+ endPos);
+			console.log("oldDay" + oldDay);
+			console.log("day" + view.dayId);
 			
 			// In case we are moving activities on the same day we have to discount the position
 			// we just moved in case we are moving the activity higher in the list
 			if (oldDay == view.dayId && endPos > startPos) --endPos;
+
 			
 			if (oldDay == view.dayId) { // Case move in the same list
 				var dayActivities = (view.dayId == null)? model.parkedActivities : model.days[view.dayId]._activities; 
@@ -49,6 +55,8 @@ var ActivityListViewController = function(view, model) {
 				window.viewsMap[dayActivities[startPos].getUniqueId()].day = view.dayId;
 				
 				model.moveActivity(oldDay, startPos, view.dayId, endPos);
+
+				console.log("inte samma dag" + model.days[oldDay]._activities);
 			}
 		}
 	});

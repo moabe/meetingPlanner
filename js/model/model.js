@@ -266,8 +266,10 @@ var model = new Model();
 
 
 // you can use this method to create some test data and test your implementation
+
+/*
 function createTestData(){
 	var initializedDays = 10;
 	for (var i = 0; i < initializedDays; ++i)
 		model.addActivity(new Activity(""+i,i,i%4,""),null);
-}
+}*/
