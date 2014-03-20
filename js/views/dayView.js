@@ -1,4 +1,7 @@
-//DayHeaderView Object constructor
+//DayHeaderView Object constructor 
+//This view constructs a view for each day, it put out the initial starttime from the model,
+// get the endtime and totaltime from the model
+//it also creats an activitylist view to hold the dragables
 var DayView = function(container, model, dayId) {
 
 	this.container = container.clone();
@@ -67,9 +70,7 @@ var DayView = function(container, model, dayId) {
 
 		//  getLengthByType() I need to get length of all types and then change styling from this
 		//Divide the lengthbyType with total length to set a width parameter
-		/*
 
-		*/
 
 		this.pPart.css("width", (model.days[dayId].getLengthByType(0)/model.days[dayId].getTotalLength())*100 + "%");
 		this.gwPart.css("width", (model.days[dayId].getLengthByType(1)/model.days[dayId].getTotalLength())*100 + "%");
@@ -86,11 +87,11 @@ var DayView = function(container, model, dayId) {
 
 
 			if((model.days[dayId].getLengthByType(3)/model.days[dayId].getTotalLength())*100 < 30){
-				this.breakP.html("Not enough breaks! You're day should have at least 30% breaks.");
+				this.breakP.html("Not enough breaks! You're day should have at least 30% breaks.").attr("style","color:red");
 			}
 
 			else{
-				this.breakP.html("You're day have 30% or more breaks, great!")
+				this.breakP.html("You're day have 30% or more breaks, great!").attr("style","color:black");
 			}
 			
 

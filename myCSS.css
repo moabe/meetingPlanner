@@ -186,8 +186,13 @@ hr{
 #breakP{
 	font-size: 12px;
 	font-style: italic;
-	color: red;
+	/*color: red;*/
 }
+
+
+
+
+
 
 .noPadding{
 	padding:0;
