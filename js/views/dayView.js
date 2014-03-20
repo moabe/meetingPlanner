@@ -55,11 +55,6 @@ var DayView = function(container, model, dayId) {
 		this.endTime.append("End time: "+ model.days[dayId].getEnd());
 		this.totalTime.append("Total time: " + model.days[dayId].getTotalLength() + " min");
 
-		//  getLengthByType() I need to get length of all types and then change styling from this
-		//Divide the lengthbyType with total length to set a width parameter
-
-
-
 
 
 
