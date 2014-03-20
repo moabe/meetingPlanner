@@ -59,9 +59,9 @@ var PopUpViewController = function(view, model){
 		view.activityNameText.val('');
 		view.activityLengthMin.val('');
 		var oldActivityType = view.container.find("#"+view.typeString);
-		oldActivityType.removeAttr('selected');
+		oldActivityType.prop('selected',false);
 		var activityType = view.container.find("#Presentation");
-		activityType.attr("selected", "selected");	
+		activityType.prop("selected", true);	
 		view.activityDescriptionText.val('');
 
 		view.saveButton.hide();

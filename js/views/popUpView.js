@@ -26,7 +26,7 @@ var PopUpView = function (container, model){
 		this.popUpName.html("Change Activity");
 
 		var defaltType = this.container.find("#Presentation");
-		defaltType.removeAttr('selected');
+		defaltType.prop('selected',false);
 
 		//fill pop-up with values from the clicked activity
 		this.activityNameText.val(this.popUpActivity.getName());
@@ -34,7 +34,7 @@ var PopUpView = function (container, model){
 		var typeString = this.popUpActivity.getType().replace(' ','');
 		this.typeString = typeString;
 		var activityType = this.container.find("#" + typeString);
-		activityType.attr("selected", "selected");	
+		activityType.prop("selected", true);	
 		this.activityDescriptionText.val(this.popUpActivity.getDescription());
 	};
 }
