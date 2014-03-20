@@ -1,4 +1,8 @@
+/*Controlles the pop up. Handels changes in existing activities, 
+creation of new activities and validation of the user input*/
+
 var PopUpViewController = function(view, model){
+	
 	this.popUpChange = function(a) {
 		view.popUpActivity = a;
 		view.saveButton.show();
@@ -17,6 +21,7 @@ var PopUpViewController = function(view, model){
 	view.saveButton.click(function(){
 		view.saveButton.removeAttr("data-dismiss");
 		if(formValidation() == true){
+
 			//update activity values from pop-up
 			view.popUpActivity.setName(view.activityNameText.val());
 			view.popUpActivity.setLength(+view.activityLengthMin.val());
@@ -30,6 +35,7 @@ var PopUpViewController = function(view, model){
 	view.createActivity.click(function(){
 		view.createActivity.removeAttr("data-dismiss");
 		if(formValidation() == true) {
+
 			//save activity from pop-up
 			var activity = new Activity(view.activityNameText.val(), +view.activityLengthMin.val(), view.activityTypeDropDown.val(), view.activityDescriptionText.val());
 			model.addActivity(activity, null);
@@ -45,7 +51,9 @@ var PopUpViewController = function(view, model){
 	view.crossClose.click(function(){
 		restorePopValues();
 	});
+
 	restorePopValues = function(){
+
 		//removing all attributes from pop-up
 		view.popUpName.html("Add Activity");
 		view.activityNameText.val('');
@@ -57,9 +65,11 @@ var PopUpViewController = function(view, model){
 		view.saveButton.hide();
 		view.createActivity.show();
 	};
+
 	formValidation = function(){
 		view.activityNameDiv.removeClass("has-error");
 		view.activityLengthDiv.removeClass("has-error");
+
 		//adding has-error-class if no input in fields
 		if(view.activityNameText.val() == ''){
 			view.activityNameDiv.addClass("has-error");

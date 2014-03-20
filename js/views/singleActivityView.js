@@ -4,16 +4,7 @@ var SingleActivityView = function (container, model, activity){
 	
 	this.activity = activity;
 	this.day = null;
-	/*this.arrayindex = index;
-
-	//pop-up
-	var modal = $("#addActivityModal");
-	this.activityNameText = modal.find("#activityNameText");
-	this.activityLengthMin = modal.find("#activityLengthMin");
-	this.activityDescriptionText = modal.find("#activityDescriptionText");
-	this.saveButton = modal.find("#saveChanges");
-	this.activityTypeDropDown = modal.find("#activityTypeSelect");
-*/
+	
 	//creating the row + divs for one activity
 	this.div = this.container.find("#timeBox");
 	this.div2 = this.container.find("#colorBox");
@@ -21,8 +12,7 @@ var SingleActivityView = function (container, model, activity){
 	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
 		
-		//update the activity in the parkedActivities
-		
+		//update the activity in the parkedActivities		
 		if(this.day == null){
 			this.div.html(this.activity.getLength() + " min");
 			this.div2.removeClass();
@@ -44,10 +34,10 @@ var SingleActivityView = function (container, model, activity){
 
 	//Register an observer to the model
 	model.addObserver(this);
+
 	//This function gets called when there is a change at the model
 	this.update = function(arg){
 		this.updateSingle();
 	}
-
 	this.updateSingle();
 }
