@@ -58,6 +58,8 @@ var PopUpViewController = function(view, model){
 		view.popUpName.html("Add Activity");
 		view.activityNameText.val('');
 		view.activityLengthMin.val('');
+		var oldActivityType = view.container.find("#"+view.typeString);
+		oldActivityType.removeAttr('selected');
 		var activityType = view.container.find("#Presentation");
 		activityType.attr("selected", "selected");	
 		view.activityDescriptionText.val('');

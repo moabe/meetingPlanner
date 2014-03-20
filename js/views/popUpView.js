@@ -14,7 +14,7 @@ var PopUpView = function (container, model){
 	this.crossClose = container.find("#crossClose");
 	this.activityNameDiv = container.find("#activityNameDiv");
 	this.activityLengthDiv = container.find("#activityLengthDiv");
-
+	this.typeString;
 	this.saveButton.hide();
 	
 	this.popUpActivity;
@@ -25,10 +25,14 @@ var PopUpView = function (container, model){
 		this.createActivity.hide();
 		this.popUpName.html("Change Activity");
 
+		var defaltType = this.container.find("#Presentation");
+		defaltType.removeAttr('selected');
+
 		//fill pop-up with values from the clicked activity
 		this.activityNameText.val(this.popUpActivity.getName());
 		this.activityLengthMin.val(this.popUpActivity.getLength());
 		var typeString = this.popUpActivity.getType().replace(' ','');
+		this.typeString = typeString;
 		var activityType = this.container.find("#" + typeString);
 		activityType.attr("selected", "selected");	
 		this.activityDescriptionText.val(this.popUpActivity.getDescription());
