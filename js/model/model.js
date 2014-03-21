@@ -155,10 +155,9 @@ function Day(startH,startM) {
 	// this method will be called when needed from the model
 	// don't call it directly
 	this._moveActivity = function(oldposition,newposition) {	
-		if(newposition > oldposition && newposition < this._activities.length - 1) {
+		/*if(newposition > oldposition && newposition < this._activities.length - 1 && oldposition != 0) {
 			newposition--;
-		}
-		
+		}*/
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};

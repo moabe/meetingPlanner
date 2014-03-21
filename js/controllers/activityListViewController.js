@@ -30,11 +30,6 @@ var ActivityListViewController = function(view, model) {
 			var startPos = ui.item.data("startPos");
 			var endPos = ui.item.data("endPos");
 			var oldDay = ui.item.data("day");
-			console.log("update");
-			console.log("startPos" + startPos);
-			console.log("endpos"+ endPos);
-			console.log("oldDay" + oldDay);
-			console.log("day" + view.dayId);
 			
 			// In case we are moving activities on the same day we have to discount the position
 			// we just moved in case we are moving the activity higher in the list
@@ -48,6 +43,7 @@ var ActivityListViewController = function(view, model) {
 				else ui.item.data("startPos", endPos); // We reset the end position in case we are actually changing day
 				
 				model.moveActivity(view.dayId, startPos, view.dayId, endPos);
+				
 			}
 			else { // From one to another									
 				// Update the day on the single activity view
@@ -56,7 +52,6 @@ var ActivityListViewController = function(view, model) {
 				
 				model.moveActivity(oldDay, startPos, view.dayId, endPos);
 
-				console.log("inte samma dag" + model.days[oldDay]._activities);
 			}
 		}
 	});
