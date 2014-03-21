@@ -12,22 +12,20 @@ var SingleActivityView = function (container, model, activity){
 	this.updateSingle = function(){
 		this.div2.html(this.activity.getName());
 		
-		//update the activity in the parkedActivities		
+		//update the activity time in the parkedActivities		
 		if(this.day == null){
 			this.div.html(this.activity.getLength() + " min");
-			this.div2.removeClass();
-			this.div2.addClass("col-md-8 col-xs-8 activity");
-			var typeString = this.activity.getType().replace(' ','');
-			this.div2.addClass(typeString);
 		}
-		//update the activity for the day
+		//update the activity time for the day
 		else{
 			this.div.html(model.days[this.day].getActivityStart(this.activity.getUniqueId()));
-			this.div2.removeClass();
-			this.div2.addClass("col-md-8 col-xs-8 activity");
-			var typeString = this.activity.getType().replace(' ','');
-			this.div2.addClass(typeString);
 		}
+		
+		//update rest of the activity
+		this.div2.removeClass();
+		this.div2.addClass("col-md-8 col-xs-8 activity");
+		var typeString = this.activity.getType().replace(' ','');
+		this.div2.addClass(typeString);
 	}
 
 	this.container.show();
